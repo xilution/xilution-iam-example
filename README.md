@@ -6,8 +6,12 @@
 1. Install NVM: https://github.com/nvm-sh/nvm
 1. Install Yarn: https://yarnpkg.com
 
-The following are required if you want to follow the "To run on Xilution Coyote" instructions below.
+The following are required if you want to follow the "To host this example on Xilution Coyote" instructions below.
 
+1. Create Xilution Account(s)
+    1. Open [https://prod.regiser.xilution.com](https://prod.regiser.xilution.com) to create a Prod Xilution account.
+    1. Open [https://test.regiser.xilution.com](https://test.regiser.xilution.com) to create a Test Xilution account.
+    * Note: Xilution Test and Prod accounts are not synchronized.
 1. Install the Xilution CLI: https://docs.xilution.com/cli/
 1. Install jq: https://stedolan.github.io/jq/
 
