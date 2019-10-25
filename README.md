@@ -6,7 +6,7 @@
 1. Install NVM: https://github.com/nvm-sh/nvm
 1. Install Yarn: https://yarnpkg.com
 
-The following are required if you want to follow the "To host this example on Xilution Coyote" instructions below.
+The following are required if you want to follow the "Xilution Coyote" instructions below.
 
 1. Create Xilution Account(s)
     1. Open [https://prod.regiser.xilution.com](https://prod.regiser.xilution.com) to create a Prod Xilution account.
@@ -15,45 +15,50 @@ The following are required if you want to follow the "To host this example on Xi
 1. Install the Xilution CLI: https://docs.xilution.com/cli/
 1. Install jq: https://stedolan.github.io/jq/
 
-## To download this repo
+## General
+
+### To download this repo
 
 1. Run `git clone @xilution/xilution-iam-example`, to download this repo.
 
-## To download repo dependencies
+### To download repo dependencies
 
 1. Run `yarn install` to download dependencies.
 
-## To verify the source code
+### To verify the source code
 
 1. Run `yarn verify`.
 
-## To run the server and make live updates
+### To run the server and make live updates
 
 1. Run `yarn start`.
     1. Open `http://localhost:3000` to view the running web application.
     1. `Ctrl-c` to stop.
 
-## To build the Docker image
+## Docker
+
+### To build the Docker image
 This tags your docker image as `xilution-iam-example`.
 
 1. Run `yarn docker:build`.
 
-## To run the Docker image locally
+### To run the Docker image locally
 
 1. Run `yarn docker:start`.
 
     1. Open `http://localhost` to view the running web application.
 
-## To stop the Docker image
+### To stop the Docker image
 
 1. Run `yarn docker:stop`.
 
-## To publish the Docker image to Docker Hub
+### To publish the Docker image to Docker Hub
 You'll need a [Docker Hub](https://hub.docker.com/) account to execute the following.
 
 1. Run `yarn docker:publish` to push the image to your Docker Hub account.
 
-## To host this example on Xilution Coyote
+## Xilution Coyote
+The following instructions describe how to host this example on Xilution Coyote
 Xilution [Coyote](https://products.xilution.com/content-delivery/coyote) is a static content hosting service.
 
 ### Activate Coyote
@@ -115,3 +120,7 @@ Deprovisioning is complete when you see the following.
 ### Delete the Coyote Instance
 
 1. Run `yarn xln:delete-instance`, to delete the Coyote instance.
+
+---
+Copyright 2019 Teapot, LLC.  
+Xilution is a DBA of Teapot, LLC.
