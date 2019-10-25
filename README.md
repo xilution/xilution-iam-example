@@ -33,8 +33,8 @@ An example demonstrating how to build a web app using Xilution's IAM suite and C
 1. Install NVM: https://github.com/nvm-sh/nvm
 1. Install Yarn: https://yarnpkg.com
 1. A Xilution Account
-    1. Open [https://prod.regiser.xilution.com](https://prod.regiser.xilution.com) to create a Prod Xilution account.
-    1. Open [https://test.regiser.xilution.com](https://test.regiser.xilution.com) to create a Test Xilution account.
+    1. Open [https://prod.register.xilution.com](https://prod.register.xilution.com) to create a Xilution Prod account.
+    1. Open [https://test.register.xilution.com](https://test.register.xilution.com) to create a Xilution Test account.
     * Note: Xilution Test and Prod accounts are not synchronized.
 1. Run through the [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) to create an API that serves up Xilution [Beagily](https://products.xilution.com/basics/beagily) data in GraphQL format.
 
