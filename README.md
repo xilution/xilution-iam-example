@@ -25,7 +25,7 @@ The following are required if you want to follow the "To run on Xilution Coyote"
 
 ## To run the server and make live updates
 
-1. Run `yarn start`
+1. Run `yarn start`.
     1. Open `http://localhost:3000` to view the running web application.
     1. `Ctrl-c` to stop.
 
@@ -95,7 +95,6 @@ Note: the instance needs to be provisioned before your content is publicly avail
 ### Access Your Content Hosted on Coyote
 
 1. Open `https://{your-instance-id}.prod.coyote.content-delivery.xilution` in a browser.
-
 
 ### Deprovision the Coyote Instance
 
