@@ -37,7 +37,7 @@
     "dependencies": {
         "@types/react": "^16.9.2",
         "@types/react-dom": "^16.9.0",
-        "@types/react-router-dom": "^4.3.5",
+        "@types/react-router-dom": "^5.1.0",
         "@xilution/xilution-iam-react": "^1.0.1",
         "graphql": "^14.5.8",
         "ra-data-graphql": "^2.9.8",
