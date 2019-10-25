@@ -1,39 +1,80 @@
 {
-  "name": "xilution-iam-example",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@types/jest": "24.0.19",
-    "@types/node": "12.11.2",
-    "@types/react": "16.9.9",
-    "@types/react-dom": "16.9.2",
-    "@xilution/xilution-iam-react": "^1.0.1",
-    "graphql": "^14.5.8",
-    "ra-data-graphql": "^2.9.8",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0",
-    "typescript": "3.6.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "xilution-iam-example",
+    "version": "0.1.0",
+    "description": "An example demonstrating how to build a secured web app using Xilution's IAM suite and Coyote.",
+    "scripts": {
+        "build": "./scripts/build.sh",
+        "clean": "./scripts/clean.sh",
+        "docker:build": "./scripts/docker-build.sh",
+        "docker:publish": "./scripts/docker-publish.sh",
+        "docker:start": "./scripts/docker-start.sh",
+        "docker:stop": "./scripts/docker-stop.sh",
+        "xln:activate": "./scripts/xln-activate.sh",
+        "xln:create-instance": "./scripts/xln-create-instance.sh",
+        "xln:deactivate": "./scripts/xln-deactivate.sh",
+        "xln:delete-instance": "./scripts/xln-delete-instance.sh",
+        "xln:deprovision-instance": "./scripts/xln-deprovision-instance.sh",
+        "xln:provision-instance": "./scripts/xln-provision-instance.sh",
+        "xln:restart-instance": "./scripts/xln-restart-instance.sh",
+        "xln:show-activation": "./scripts/xln-show-activation.sh",
+        "xln:show-instance-status": "./scripts/xln-show-instance-status.sh",
+        "xln:show-instances": "./scripts/xln-show-instances.sh",
+        "xln:list-instance-content": "./scripts/xln-list-instance-content.sh",
+        "xln:upload-instance-content": "./scripts/xln-upload-instance-content.sh",
+        "lint": "./scripts/lint.sh",
+        "test": "./scripts/test.sh",
+        "start": "./scripts/start.sh",
+        "verify": "./scripts/verify.sh"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xilution/xilution-iam-example"
+    },
+    "bugs": {
+        "url": "https://github.com/xilution/xilution-iam-example/issues"
+    },
+    "homepage": "https://github.com/xilution/xilution-iam-example",
+    "dependencies": {
+        "@types/react": "^16.9.2",
+        "@types/react-dom": "^16.9.0",
+        "@types/react-router-dom": "^4.3.5",
+        "@xilution/xilution-iam-react": "^1.0.1",
+        "graphql": "^14.5.8",
+        "ra-data-graphql": "^2.9.8",
+        "react": "^16.9.0",
+        "react-admin": "^2.9.8",
+        "react-apollo": "^3.1.3",
+        "react-dom": "^16.5.2"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^8.1.0",
+        "@commitlint/config-conventional": "^8.1.0",
+        "@types/node": "^12.7.2",
+        "copy-webpack-plugin": "^5.0.4",
+        "graphql-tag": "^2.10.1",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "4.0.0-beta.8",
+        "husky": "^3.0.4",
+        "ts-loader": "^6.0.4",
+        "ts-node": "^8.1.0",
+        "tslint": "^5.19.0",
+        "tslint-plugin-graphql": "^0.0.6",
+        "tslint-react": "^4.0.0",
+        "typescript": "^3.4.4",
+        "typescript-tslint-plugin": "^0.5.3",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.9"
+    },
+    "engines": {
+        "node": ">=10.16.3",
+        "yarn": ">=1.3.2",
+        "npm": ">=5.6.0"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "author": "Todd Brunia <tbrunia@gmail.com> (http://www.github.com/tbrunia)",
+    "license": "MIT"
 }

@@ -1,2 +1,3 @@
-declare module 'react-admin';
-declare module 'ra-data-graphql';
+declare module "react-admin";
+declare module "react-apollo";
+declare module "ra-data-graphql";

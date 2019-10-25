@@ -1,44 +1,114 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# xilution-iam-example
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
+1. Install NVM: https://github.com/nvm-sh/nvm
+1. Install Yarn: https://yarnpkg.com
 
-### `yarn start`
+The following are required if you want to follow the "To run on Xilution Coyote" instructions below.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Install the Xilution CLI: https://docs.xilution.com/cli/
+1. Install jq: https://stedolan.github.io/jq/
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## To download this repo
 
-### `yarn test`
+1. Run `git clone @xilution/xilution-iam-example`, to download this repo.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## To download repo dependencies
 
-### `yarn build`
+1. Run `yarn install` to download dependencies.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## To verify the source code
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Run `yarn verify`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## To run the server and make live updates
 
-### `yarn eject`
+1. Run `yarn start`
+    1. Open `http://localhost:3000` to view the running web application.
+    1. `Ctrl-c` to stop.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## To build the Docker image
+This tags your docker image as `xilution-iam-example`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Run `yarn docker:build`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## To run the Docker image locally
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Run `yarn docker:start`.
 
-## Learn More
+    1. Open `http://localhost` to view the running web application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## To stop the Docker image
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Run `yarn docker:stop`.
+
+## To publish the Docker image to Docker Hub
+You'll need a [Docker Hub](https://hub.docker.com/) account to execute the following.
+
+1. Run `yarn docker:publish` to push the image to your Docker Hub account.
+
+## To host this example on Xilution Coyote
+Xilution [Coyote](https://products.xilution.com/content-delivery/coyote) is a static content hosting service.
+
+### Activate Coyote
+Coyote must be activated on your Xilution Account before it's available for use.
+
+1. Run `yarn xln:show-activation` to see the status of your Coyote activation.
+
+    1. If the Coyote activation does not exist or is inactive, run `yarn xln:activate` to activate Xilution Coyote.
+    2. Conversely, you can run `yarn xln:deactivate` to deactivate Xilution Coyote.
+
+### Create a Coyote Instance
+A Coyote Instance contains data that instructs Coyote on how to host your content.
+You provision a Coyote Instance to make your content available.
+Likewise, you deprovision a Coyote Instance to take your content offline.
+
+1. Run `yarn xln:show-instances` to see your Coyote instances.
+    1. If you don't have a `xilution-iam-example` Coyote instance, run `yarn xln:create-instance` to create a new Coyote instance.
+    Take note of the `id` of the new instance.
+    You'll need it in the next step to provision the instance.
+
+### Provision the Coyote Instance
+
+1. Run `yarn xln:provision-instance`, to provision the Coyote instance.
+1. Run `yarn xln:show-instance-status`, to see the status of your Coyote instance.
+It can take up to 2 minutes to fully provision your Coyote instance.
+Provisioning is complete when you see the following.
+    ```json
+    {
+       "status": "CREATE_COMPLETE"
+    }
+   ```
+
+### Upload Your Content to your Provisioned Coyote Instance
+This example must be built before you can deploy it to your provisioned Coyote instance.
+
+1. Run `yarn xln:upload-instance-content` to upload the built content to your provisioned Coyote instance.
+
+### List Your Coyote Instance Content
+
+1. Run `yarn xln:list-instance-content` to view the content published to your Coyote instance.
+Note: the instance needs to be provisioned before your content is publicly available.
+
+### Access Your Content Hosted on Coyote
+
+1. Open `https://{your-instance-id}.prod.coyote.content-delivery.xilution` in a browser.
+
+
+### Deprovision the Coyote Instance
+
+1. Run `yarn xln:deprovision-instance`, to deprovision the Coyote instance.
+1. Run `yarn xln:show-instance-status`, to see the status of your Coyote instance.
+It can take up to 2 minutes to fully deprovision your Coyote instance.
+Deprovisioning is complete when you see the following.
+    ```json
+    {
+       "status": "NOT_FOUND"
+    }
+   ```
+
+### Delete the Coyote Instance
+
+1. Run `yarn xln:delete-instance`, to delete the Coyote instance.

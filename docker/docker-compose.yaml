@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    xilution-iam-example:
+        build: .
+        container_name: xilution-iam-example
+        image: xilution/xilution-iam-example
+        ports:
+            - '81:80'
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf

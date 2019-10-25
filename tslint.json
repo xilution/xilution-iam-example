@@ -1,0 +1,13 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-react",
+        "tslint-plugin-graphql"
+    ],
+    "rules": {
+        "jsx-no-lambda": false,
+        "jsx-no-multiline-js": false,
+        "max-line-length": false
+    }
+}
