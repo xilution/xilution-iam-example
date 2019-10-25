@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-    xilution-iam-example:
+    xilution-web-frontend-example:
         build: .
-        container_name: xilution-iam-example
-        image: xilution/xilution-iam-example
+        container_name: xilution-web-frontend-example
+        image: xilution/xilution-web-frontend-example
         ports:
             - '81:80'
         volumes:

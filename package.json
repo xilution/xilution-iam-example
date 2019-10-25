@@ -1,5 +1,5 @@
 {
-    "name": "xilution-iam-example",
+    "name": "xilution-web-frontend-example",
     "version": "0.1.0",
     "description": "An example demonstrating how to build a web app using Xilution's IAM suite and Coyote.",
     "scripts": {
@@ -28,12 +28,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/xilution/xilution-iam-example"
+        "url": "https://github.com/xilution/xilution-web-frontend-example"
     },
     "bugs": {
-        "url": "https://github.com/xilution/xilution-iam-example/issues"
+        "url": "https://github.com/xilution/xilution-web-frontend-example/issues"
     },
-    "homepage": "https://github.com/xilution/xilution-iam-example",
+    "homepage": "https://github.com/xilution/xilution-web-frontend-example",
     "dependencies": {
         "@types/react": "^16.9.2",
         "@types/react-dom": "^16.9.0",

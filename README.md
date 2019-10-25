@@ -1,4 +1,4 @@
-# xilution-iam-example
+# xilution-web-frontend-example
 An example demonstrating how to build a web app using Xilution's IAM suite and Coyote.
 
 ## Prerequisites
@@ -20,7 +20,7 @@ The following are required if you want to follow the "Xilution Coyote" instructi
 
 ### To download this repo
 
-1. Run `git clone @xilution/xilution-iam-example`, to download this repo.
+1. Run `git clone @xilution/xilution-web-frontend-example`, to download this repo.
 
 ### To download repo dependencies
 
@@ -39,7 +39,7 @@ The following are required if you want to follow the "Xilution Coyote" instructi
 ## Docker
 
 ### To build the Docker image
-This tags your docker image as `xilution-iam-example`.
+This tags your docker image as `xilution-web-frontend-example`.
 
 1. Run `yarn docker:build`.
 
@@ -76,7 +76,7 @@ You provision a Coyote Instance to make your content available.
 Likewise, you deprovision a Coyote Instance to take your content offline.
 
 1. Run `yarn xln:show-instances` to see your Coyote instances.
-    1. If you don't have a `xilution-iam-example` Coyote instance, run `yarn xln:create-instance` to create a new Coyote instance.
+    1. If you don't have a `xilution-web-frontend-example` Coyote instance, run `yarn xln:create-instance` to create a new Coyote instance.
     Take note of the `id` of the new instance.
     You'll need it in the next step to provision the instance.
 

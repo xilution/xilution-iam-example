@@ -13,15 +13,15 @@ owning_user_id=${3}
 
 echo "{
   \"@type\": \"instance\",
-  \"name\": \"xilution-iam-example\",
+  \"name\": \"xilution-web-frontend-example\",
   \"organizationId\": \"${organization_id}\",
   \"owningUserId\": \"${owning_user_id}\",
   \"stack\": \"SMALL_STACK\"
-}" >./xilution-iam-example-temp.json
+}" >./xilution-web-frontend-example-temp.json
 
 xln-cli api integration coyote create_instance \
   --organization_id "${organization_id}" \
-  --input_file ./xilution-iam-example-temp.json \
+  --input_file ./xilution-web-frontend-example-temp.json \
   -p "${environment}" | jq '. | {id: .id, name: .name}'
 
-rm -rf ./xilution-iam-example-temp.json
+rm -rf ./xilution-web-frontend-example-temp.json

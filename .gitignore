@@ -2,7 +2,7 @@
 node_modules
 dist
 yarn-error.log
-xilution-iam-example-temp.json
+xilution-web-frontend-example-temp.json
 
 # Editor directories and files
 .idea

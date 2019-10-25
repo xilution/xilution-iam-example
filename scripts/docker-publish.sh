@@ -9,7 +9,7 @@ fi
 
 docker_hub_account=${1}
 
-echo "Please enter your Docker Hub account password to publish xilution-iam-example."
+echo "Please enter your Docker Hub account password to publish xilution-web-frontend-example."
 docker login -u "${docker_hub_account}"
-docker tag xilution-iam-example "${docker_hub_account}"/xilution-iam-example
-docker push "${docker_hub_account}"/xilution-iam-example
+docker tag xilution-web-frontend-example "${docker_hub_account}"/xilution-web-frontend-example
+docker push "${docker_hub_account}"/xilution-web-frontend-example

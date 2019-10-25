@@ -17,5 +17,5 @@ docker build \
   --build-arg XILUTION_ORGANIZATION_ID="${organization_id}" \
   --build-arg XILUTION_CLIENT_ID="${client_id}" \
   --build-arg XILUTION_INSTANCE_ID="${instance_id}" \
-  -t xilution-iam-example \
+  -t xilution-web-frontend-example \
   -f docker/Dockerfile .
