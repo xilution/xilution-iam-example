@@ -1,7 +1,7 @@
 {
     "name": "xilution-iam-example",
     "version": "0.1.0",
-    "description": "An example demonstrating how to build a secured web app using Xilution's IAM suite and Coyote.",
+    "description": "An example demonstrating how to build a web app using Xilution's IAM suite and Coyote.",
     "scripts": {
         "build": "./scripts/build.sh",
         "clean": "./scripts/clean.sh",

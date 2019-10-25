@@ -1,4 +1,5 @@
 # xilution-iam-example
+An example demonstrating how to build a web app using Xilution's IAM suite and Coyote.
 
 ## Prerequisites
 
