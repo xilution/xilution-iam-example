@@ -22,7 +22,7 @@ import {
 
 interface IProps {
     env: string;
-    foxInstanceId: string;
+    apiBaseUrl: string;
 }
 
 interface IState {
@@ -174,14 +174,14 @@ class PetAdmin extends React.Component<IProps, IState> {
     }
 
     public componentDidMount() {
-        const {env, foxInstanceId} = this.props;
+        const {env, apiBaseUrl} = this.props;
 
         buildGraphQLProvider({
             buildQuery,
             client: new ApolloClient({
                 cache: new InMemoryCache(),
                 link: createHttpLink({
-                    uri: `https://${foxInstanceId}.${env}.fox.integration.xilution.com/graphql`,
+                    uri: `${apiBaseUrl}/graphql`,
                 }),
             }),
         }).then((dataProvider: any) => this.setState({dataProvider}));

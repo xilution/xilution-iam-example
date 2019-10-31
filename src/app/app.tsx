@@ -9,7 +9,7 @@ const XILUTION_SUB_ORGANIZATION_ID = __XILUTION_SUB_ORGANIZATION_ID__;
 // @ts-ignore
 const XILUTION_WEB_CLIENT_ID = __XILUTION_WEB_CLIENT_ID__;
 // @ts-ignore
-const XILUTION_INSTANCE_ID = __XILUTION_INSTANCE_ID__;
+const API_BASE_URL = __API_BASE_URL__;
 const SCOPE = "read write";
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
     >
         <PetAdmin
             env={XILUTION_ENVIRONMENT}
-            foxInstanceId={XILUTION_INSTANCE_ID}
+            apiBaseUrl={API_BASE_URL}
         />
     </AuthProvider>
 );

@@ -80,6 +80,33 @@ We recommend running through it before moving on with the rest of this example.
         * Note: You will be prompted for your Xilution account username and password.
         * Note: The access token saved to the environment variables file will expire in one hour.
 
+1. Activate Rhino
+
+    Xilution [Rhino](https://products.xilution.com/basics/rhino) is part of Xilution's IAM suite and is used to manage sub-organization users.
+
+    1. Run `yarn xln:rhino:activate`.
+    
+    * To see the Rhino activation status, run `yarn xln:rhino:show-activation` to see the Rhino activation status.
+    * To deactivate Rhino, run `yarn xln:rhino:deactivate`.
+
+1. Add an IAM User to the Sub-Organization
+
+    1. Run `yarn xln:rhino:sign-up-iam-user {email} {username}`.
+        * {email} is the new user's email address. Enter an email address that you have access to.
+        * {username} is the new user's username.
+        * A verification code will be emailed to the email address you entered when signing up the new user.
+    
+    * To see the sub-organization's users run, `yarn xln:rhino:show-users`.
+    * To delete a sub-organization's user run, `yarn xln:rhino:delete-user {user-id}`.
+    
+    * TODO - make a note about needing a credit card in Prod.
+
+1. Verify the New User's Email Address
+
+    1. Run `yarn xln:rhino:verify-user-email {username} {code}`.
+        * {username} is the new user's username.
+        * {code} is the verification code the you received in your email inbox.
+
 1. Activate Hippo
 
     Xilution [Hippo](https://products.xilution.com/basics/hippo) is part of Xilution's IAM suite and is used to manage sub-organization clients.
@@ -91,8 +118,8 @@ We recommend running through it before moving on with the rest of this example.
 
 1. Add a Clients to the Sub-Organization
 
-    1. Run `yarn xln:hippo:create-web-client`.
     1. Run `yarn xln:hippo:create-iam-client`.
+    1. Run `yarn xln:hippo:create-web-client`.
 
     * To see the sub-organization's clients run, `yarn xln:hippo:show-clients`.
     * To delete a sub-organization's client run, `yarn xln:hippo:delete-client {client-id}`.
@@ -107,9 +134,9 @@ We recommend running through it before moving on with the rest of this example.
 
     * Requires the Set Up step to be complete.
 
-1. Run `yarn start`.
+1. Run `yarn start-connected-to-locally-hosted-api` or `yarn start-connected-to-fox-hosted-api`.
 
-    1. Open `http://localhost:3000` to view the running web application.
+    1. Open `http://localhost:3124` to view the running web application.
     1. `Ctrl-c` to stop.
 
 ## Docker

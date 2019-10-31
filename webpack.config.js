@@ -26,8 +26,8 @@ module.exports = env => {
         process.exit(1);
     }
 
-    if (!env.XILUTION_INSTANCE_ID) {
-        console.error("Instance ID must be set.");
+    if (!env.API_BASE_URL) {
+        console.error("API base URL must be set.");
         process.exit(1);
     }
 
@@ -75,7 +75,7 @@ module.exports = env => {
                 __XILUTION_ENVIRONMENT__: JSON.stringify(env.XILUTION_ENVIRONMENT),
                 __XILUTION_SUB_ORGANIZATION_ID__: JSON.stringify(env.XILUTION_SUB_ORGANIZATION_ID),
                 __XILUTION_WEB_CLIENT_ID__: JSON.stringify(env.XILUTION_WEB_CLIENT_ID),
-                __XILUTION_INSTANCE_ID__: JSON.stringify(env.XILUTION_INSTANCE_ID),
+                __API_BASE_URL__: JSON.stringify(env.API_BASE_URL),
             }),
             new HtmlWebPackPlugin({
                 filename: "./index.html",

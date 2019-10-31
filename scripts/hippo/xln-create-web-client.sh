@@ -26,10 +26,16 @@ if [[ -z "${XILUTION_ACCOUNT_USER_ID}" ]]; then
   exit 1
 fi
 
+if [[ -z "${XILUTION_IAM_USER_ID}" ]]; then
+  echo "XILUTION_IAM_USER_ID not found in .env"
+  exit 1
+fi
+
 environment=${XILUTION_ENVIRONMENT}
 access_token=${XILUTION_ACCOUNT_ACCESS_TOKEN}
 sub_organization_id=${XILUTION_SUB_ORGANIZATION_ID}
 account_user_id=${XILUTION_ACCOUNT_USER_ID}
+iam_user_id=${XILUTION_IAM_USER_ID}
 
 post_response=$(curl -sSL -D - \
   -X POST \
@@ -37,11 +43,19 @@ post_response=$(curl -sSL -D - \
   -H "Authorization: Bearer ${access_token}" \
   -d "{
     \"@type\": \"client\",
-    \"name\": \"API Client\",
-    \"grants\": [\"authorization_code\"],
-    \"redirectUris\": [],
+    \"name\": \"graphql-backend-example-web-client\",
+    \"grants\": [
+      \"authorization_code\",
+      \"refresh_token\"
+    ],
+    \"redirectUris\": [
+      \"http://localhost:3124/#/pets\",
+      \"http://localhost:3124/\",
+      \"https://${sub_organization_id}.prod.coyote.content-delivery.xilution.com/#/pets\",
+      \"https://${sub_organization_id}.prod.coyote.content-delivery.xilution.com/\"
+    ],
     \"organizationId\": \"${sub_organization_id}\",
-    \"clientUserId\": \"${account_user_id}\",
+    \"clientUserId\": \"${iam_user_id}\",
     \"owningUserId\": \"${account_user_id}\",
     \"active\": true
   }" \
