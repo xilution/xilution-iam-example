@@ -2,7 +2,8 @@
 node_modules
 dist
 yarn-error.log
-xilution-web-frontend-example-temp.json
+temp.json
+.env
 
 # Editor directories and files
 .idea

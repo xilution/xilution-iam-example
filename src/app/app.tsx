@@ -5,9 +5,9 @@ import PetAdmin from "../components/pet-admin";
 // @ts-ignore
 const XILUTION_ENVIRONMENT = __XILUTION_ENVIRONMENT__;
 // @ts-ignore
-const XILUTION_ORGANIZATION_ID = __XILUTION_ORGANIZATION_ID__;
+const XILUTION_SUB_ORGANIZATION_ID = __XILUTION_SUB_ORGANIZATION_ID__;
 // @ts-ignore
-const XILUTION_CLIENT_ID = __XILUTION_CLIENT_ID__;
+const XILUTION_WEB_CLIENT_ID = __XILUTION_WEB_CLIENT_ID__;
 // @ts-ignore
 const XILUTION_INSTANCE_ID = __XILUTION_INSTANCE_ID__;
 const SCOPE = "read write";
@@ -15,8 +15,8 @@ const SCOPE = "read write";
 const App = () => (
     <AuthProvider
         env={XILUTION_ENVIRONMENT}
-        organizationId={XILUTION_ORGANIZATION_ID}
-        clientId={XILUTION_CLIENT_ID}
+        organizationId={XILUTION_SUB_ORGANIZATION_ID}
+        clientId={XILUTION_WEB_CLIENT_ID}
         scope={SCOPE}
     >
         <PetAdmin

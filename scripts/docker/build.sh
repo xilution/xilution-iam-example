@@ -24,10 +24,10 @@ if [[ -z "${XILUTION_INSTANCE_ID}" ]]; then
   exit 1
 fi
 
-webpack-dev-server \
+docker build \
   --env.XILUTION_ENVIRONMENT="${XILUTION_ENVIRONMENT}" \
   --env.XILUTION_SUB_ORGANIZATION_ID="${XILUTION_SUB_ORGANIZATION_ID}" \
   --env.XILUTION_WEB_CLIENT_ID="${XILUTION_WEB_CLIENT_ID}" \
   --env.XILUTION_INSTANCE_ID="${XILUTION_INSTANCE_ID}" \
-  --config ./webpack.config.js \
-  --port 3000
+  -t xilution-web-frontend-example \
+  -f docker/Dockerfile .

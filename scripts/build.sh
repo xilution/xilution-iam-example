@@ -1,21 +1,33 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -e
 
-if [ $# -lt 4 ]; then
-  echo "Usage: yarn build {environment} {organization_id} {client_id} {instance_id}"
+source .env
+
+if [[ -z "${XILUTION_ENVIRONMENT}" ]]; then
+  echo "XILUTION_ENVIRONMENT not found in .env"
   exit 1
 fi
 
-environment=${1}
-organization_id=${2}
-client_id=${3}
-instance_id=${4}
+if [[ -z "${XILUTION_SUB_ORGANIZATION_ID}" ]]; then
+  echo "XILUTION_SUB_ORGANIZATION_ID not found in .env"
+  exit 1
+fi
+
+if [[ -z "${XILUTION_WEB_CLIENT_ID}" ]]; then
+  echo "XILUTION_WEB_CLIENT_ID not found in .env"
+  exit 1
+fi
+
+if [[ -z "${XILUTION_INSTANCE_ID}" ]]; then
+  echo "XILUTION_INSTANCE_ID not found in .env"
+  exit 1
+fi
 
 webpack-cli \
-  --env.XILUTION_ENVIRONMENT="${environment}" \
-  --env.XILUTION_ORGANIZATION_ID="${organization_id}" \
-  --env.XILUTION_CLIENT_ID="${client_id}" \
-  --env.XILUTION_INSTANCE_ID="${instance_id}" \
+  --env.XILUTION_ENVIRONMENT="${XILUTION_ENVIRONMENT}" \
+  --env.XILUTION_SUB_ORGANIZATION_ID="${XILUTION_SUB_ORGANIZATION_ID}" \
+  --env.XILUTION_WEB_CLIENT_ID="${XILUTION_WEB_CLIENT_ID}" \
+  --env.XILUTION_INSTANCE_ID="${XILUTION_INSTANCE_ID}" \
   --mode production \
   --config webpack.config.js

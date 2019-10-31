@@ -16,12 +16,12 @@ module.exports = env => {
         process.exit(1);
     }
 
-    if (!env.XILUTION_ORGANIZATION_ID) {
+    if (!env.XILUTION_SUB_ORGANIZATION_ID) {
         console.error("Organization ID must be set.");
         process.exit(1);
     }
 
-    if (!env.XILUTION_CLIENT_ID) {
+    if (!env.XILUTION_WEB_CLIENT_ID) {
         console.error("Client ID must be set.");
         process.exit(1);
     }
@@ -73,8 +73,8 @@ module.exports = env => {
         plugins: [
             new webpack.DefinePlugin({
                 __XILUTION_ENVIRONMENT__: JSON.stringify(env.XILUTION_ENVIRONMENT),
-                __XILUTION_ORGANIZATION_ID__: JSON.stringify(env.XILUTION_ORGANIZATION_ID),
-                __XILUTION_CLIENT_ID__: JSON.stringify(env.XILUTION_CLIENT_ID),
+                __XILUTION_SUB_ORGANIZATION_ID__: JSON.stringify(env.XILUTION_SUB_ORGANIZATION_ID),
+                __XILUTION_WEB_CLIENT_ID__: JSON.stringify(env.XILUTION_WEB_CLIENT_ID),
                 __XILUTION_INSTANCE_ID__: JSON.stringify(env.XILUTION_INSTANCE_ID),
             }),
             new HtmlWebPackPlugin({

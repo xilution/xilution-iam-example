@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-set -e
-
-rm -rf dist
+echo "implement me"

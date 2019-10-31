@@ -1,6 +1,6 @@
 <h1 align="center" style="border-bottom: none;">xilution-web-frontend-example</h1>
 <p>
-An example demonstrating how to build a web app using Xilution's IAM suite and Coyote.
+An example demonstrating how to build a web app using Xilution's IAM suite (Elephant, Rhino, Hippo and Zebra) and Coyote.
 <p>
 <p align="center">
   <a href="https://github.com/xilution/xilution-web-frontend-example/issues">
@@ -27,39 +27,88 @@ An example demonstrating how to build a web app using Xilution's IAM suite and C
   </a>
 </p>
 
+## Use Case
+
+TODO - Describe the use case
+
+## Features
+
+TODO - add features
+
+## General
+
+### To Install Dependencies
+
+1. Run `yarn install` to download dependencies.
+
+### To Verify The Source Code
+
+1. Run `yarn verify`.
+
 ## Prerequisites
 
 1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
 1. Install NVM: https://github.com/nvm-sh/nvm
 1. Install Yarn: https://yarnpkg.com
-1. A Xilution Account
+1. Install jq: https://stedolan.github.io/jq/
+1. Install cURL: https://curl.haxx.se/
+
+1. Create a Xilution Account
     1. Open [https://prod.register.xilution.com](https://prod.register.xilution.com) to create a Xilution Prod account.
     1. Open [https://test.register.xilution.com](https://test.register.xilution.com) to create a Xilution Test account.
+    
     * Note: Xilution Test and Prod accounts are not synchronized.
-1. Run through the [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) to create an API that serves up Xilution [Beagily](https://products.xilution.com/basics/beagily) data in GraphQL format.
 
-The following are required if you want to follow the "Xilution Coyote" instructions below.
+## Set Up
 
-1. Install the Xilution CLI: https://docs.xilution.com/cli/
-1. Install jq: https://stedolan.github.io/jq/
+1. Set Up an API
 
-## General
+This example integrates with the API created in https://github.com/xilution/xilution-graphql-backend-example.
+We recommend running through it before moving on with the rest of this example.
 
-### To download this repo
+1. Create an environment variables file.
 
-1. Run `git clone @xilution/xilution-web-frontend-example`, to download this repo.
+    1. Run `touch .env` to create a new environment variables file.
+    1. Run `echo "XILUTION_ENVIRONMENT={environment}" >> .env` to add your environment preference to the environment an variables file (.env).
+        * {environment} is a Xilution environment. One of 'test' or 'prod'. Should be the same environment you used in `xilution-graphql-backend-example`. 
+    1. Run `echo "XILUTION_SUB_ORGANIZATION_ID={sub-organization-id}" >> .env`.
+        * {sub-organization-id} is found in the `.env` file created when you ran through `xilution-graphql-backend-example`. 
 
-### To download repo dependencies
+1. Get an Access Token with your Xilution Account Credentials
 
-1. Run `yarn install` to download dependencies.
+    1. Run `yarn xln:authentication:token-from-user-credentials`.
+        * Note: You will be prompted for your Xilution account username and password.
+        * Note: The access token saved to the environment variables file will expire in one hour.
 
-### To verify the source code
+1. Activate Hippo
 
-1. Run `yarn verify`.
+    Xilution [Hippo](https://products.xilution.com/basics/hippo) is part of Xilution's IAM suite and is used to manage sub-organization clients.
 
-### To run the server and make live updates
+    1. Run `yarn xln:hippo:activate`.
+
+    * To see the Hippo activation status, run `yarn xln:hippo:show-activation` to see the Hippo activation status.
+    * To deactivate Hippo, run `yarn xln:hippo:deactivate`.
+
+1. Add a Clients to the Sub-Organization
+
+    1. Run `yarn xln:hippo:create-web-client`.
+    1. Run `yarn xln:hippo:create-iam-client`.
+
+    * To see the sub-organization's clients run, `yarn xln:hippo:show-clients`.
+    * To delete a sub-organization's client run, `yarn xln:hippo:delete-client {client-id}`.
+
+1. Update the Sub Organization's IAM Client ID
+
+    1. Run `yarn xln:elephant:update-iam-client-id`.
+
+## Running Locally
+
+1. Run `export $(grep -v '^#' .env | xargs)`.
+
+    * Requires the Set Up step to be complete.
 
 1. Run `yarn start`.
+
     1. Open `http://localhost:3000` to view the running web application.
     1. `Ctrl-c` to stop.
 
@@ -90,28 +139,29 @@ The following instructions describe how to host this example on Xilution Coyote
 Xilution [Coyote](https://products.xilution.com/content-delivery/coyote) is a static content hosting service.
 
 ### Activate Coyote
+
 Coyote must be activated on your Xilution Account before it's available for use.
 
-1. Run `yarn xln:show-activation` to see the status of your Coyote activation.
+1. Run `yarn xln:coyote:activate`.
 
-    1. If the Coyote activation does not exist or is inactive, run `yarn xln:activate` to activate Xilution Coyote.
-    2. Conversely, you can run `yarn xln:deactivate` to deactivate Xilution Coyote.
+* To see the Coyote activation status, run `yarn xln:coyote:show-activation` to see the Coyote activation status.
+* To deactivate Coyote, run `yarn xln:coyote:deactivate`.
 
 ### Create a Coyote Instance
 A Coyote Instance contains data that instructs Coyote on how to host your content.
 You provision a Coyote Instance to make your content available.
 Likewise, you deprovision a Coyote Instance to take your content offline.
 
-1. Run `yarn xln:show-instances` to see your Coyote instances.
-    1. If you don't have a `xilution-web-frontend-example` Coyote instance, run `yarn xln:create-instance` to create a new Coyote instance.
-    Take note of the `id` of the new instance.
-    You'll need it in the next step to provision the instance.
+1. Run `yarn xln:coyote:create-instance`.
+
+* To see your instances, run `yarn xln:coyote:show-instances`.
+* To delete a instance, run `yarn xln:coyote:delete-instance {instance-id}`
 
 ### Provision the Coyote Instance
 
-1. Run `yarn xln:provision-instance`, to provision the Coyote instance.
-1. Run `yarn xln:show-instance-status`, to see the status of your Coyote instance.
-It can take up to 2 minutes to fully provision your Coyote instance.
+1. Run `yarn xln:provision-coyote-instance`, to provision the Coyote instance.
+1. Run `yarn xln:show-coyote-instance-status`, to see the status of your Coyote instance.
+It can take up to 2 minutes to fully provision your Fox instance.
 Provisioning is complete when you see the following.
     ```json
     {
@@ -122,7 +172,7 @@ Provisioning is complete when you see the following.
 ### Upload Your Content to your Provisioned Coyote Instance
 This example must be built before you can deploy it to your provisioned Coyote instance.
 
-1. Run `yarn xln:upload-instance-content` to upload the built content to your provisioned Coyote instance.
+1. Run `yarn xln:coyote:upload-instance-content` to upload the built content to your provisioned Coyote instance.
 
 ### List Your Coyote Instance Content
 
@@ -131,13 +181,15 @@ Note: the instance needs to be provisioned before your content is publicly avail
 
 ### Access Your Content Hosted on Coyote
 
-1. Open `https://{your-instance-id}.prod.coyote.content-delivery.xilution` in a browser.
+
+1. Run `cat .env | grep XILUTION_INSTANCE_ID` to see your Coyote Instance ID.
+1. Open `https://{instance-id}.prod.coyote.content-delivery.xilution` in a browser.
 
 ### Deprovision the Coyote Instance
 
-1. Run `yarn xln:deprovision-instance`, to deprovision the Coyote instance.
-1. Run `yarn xln:show-instance-status`, to see the status of your Coyote instance.
-It can take up to 2 minutes to fully deprovision your Coyote instance.
+1. Run `yarn xln:coyote:deprovision-instance`, to deprovision the Coyote instance.
+1. Run `yarn xln:coyote:show-instance-status`, to see the status of your Coyote instance.
+It can take up to 2 minutes to fully deprovision your Fox instance.
 Deprovisioning is complete when you see the following.
     ```json
     {
@@ -147,7 +199,7 @@ Deprovisioning is complete when you see the following.
 
 ### Delete the Coyote Instance
 
-1. Run `yarn xln:delete-instance`, to delete the Coyote instance.
+1. Run `yarn xln:coyote:delete-instance {instance-id}`, to delete the Coyote instance.
 
 ---
 Copyright 2019 Teapot, LLC.  
