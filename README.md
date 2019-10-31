@@ -107,14 +107,19 @@ We recommend running through it before moving on with the rest of this example.
         * {username} is the new user's username.
         * {code} is the verification code the you received in your email inbox.
 
-1. Activate Hippo
+1. Activate Hippo For Account and Sub Organization
 
     Xilution [Hippo](https://products.xilution.com/basics/hippo) is part of Xilution's IAM suite and is used to manage sub-organization clients.
 
-    1. Run `yarn xln:hippo:activate`.
+    1. Run `yarn xln:hippo:activate-for-account-organization`.
 
-    * To see the Hippo activation status, run `yarn xln:hippo:show-activation` to see the Hippo activation status.
-    * To deactivate Hippo, run `yarn xln:hippo:deactivate`.
+    * To see the Hippo activation status, run `yarn xln:hippo:show-activation-for-account-organization` to see the Hippo activation status.
+    * To deactivate Hippo, run `yarn xln:hippo:deactivate-for-account-organization`.
+
+    1. Run `yarn xln:hippo:activate-for-sub-organization`.
+
+    * To see the Hippo activation status, run `yarn xln:hippo:show-activation-for-sub-organization` to see the Hippo activation status.
+    * To deactivate Hippo, run `yarn xln:hippo:deactivate-for-sub-organization`.
 
 1. Add a Clients to the Sub-Organization
 
