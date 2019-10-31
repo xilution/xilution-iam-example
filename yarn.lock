@@ -567,10 +567,10 @@
   dependencies:
     tslib "^1.9.3"
 
-"@xilution/xilution-iam-react@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@xilution/xilution-iam-react/-/xilution-iam-react-1.0.1.tgz#7cb3d9001342f27e3b3ed502e2c770b39335e6d0"
-  integrity sha512-7cbUw2v+t+PpEEQJrpbUpEjpmNEHLKsqN0YnIMV0PQE1EwZ7/rM1VtTGT3u4eG/MKokSAa3+Sv93MlndswFJSg==
+"@xilution/xilution-iam-react@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@xilution/xilution-iam-react/-/xilution-iam-react-1.1.0.tgz#630c1c71f9dfed7d1ec3499df0a40725ce9b698a"
+  integrity sha512-sVe1HTZbHZ5KaMoDPp09qIob1yHko3FlYrGo7t/2rKMniBApOMKKxD0qpoCxbXiQtaPVCF6+bZ7NIpDItc6wQQ==
   dependencies:
     "@babel/polyfill" "^7.4.4"
     "@types/jsonwebtoken" "^8.3.2"
@@ -712,6 +712,14 @@ apollo-client@^2.2.2, apollo-client@^2.5.1:
     ts-invariant "^0.4.0"
     tslib "^1.9.3"
     zen-observable "^0.8.0"
+
+apollo-link-context@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/apollo-link-context/-/apollo-link-context-1.0.19.tgz#3c9ba5bf75ed5428567ce057b8837ef874a58987"
+  integrity sha512-TUi5TyufU84hEiGkpt+5gdH5HkB3Gx46npNfoxR4of3DKBCMuItGERt36RCaryGcU/C3u2zsICU3tJ+Z9LjFoQ==
+  dependencies:
+    apollo-link "^1.2.13"
+    tslib "^1.9.3"
 
 apollo-link-http-common@^0.2.15:
   version "0.2.15"

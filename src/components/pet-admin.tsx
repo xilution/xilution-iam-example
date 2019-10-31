@@ -2,6 +2,7 @@ import {injectAuth} from "@xilution/xilution-iam-react";
 import {InMemoryCache} from "apollo-cache-inmemory";
 import {ApolloClient} from "apollo-client";
 import {createHttpLink} from "apollo-link-http";
+import {setContext} from "apollo-link-context";
 import gql from "graphql-tag";
 import buildGraphQLProvider from "ra-data-graphql";
 import * as React from "react";
@@ -19,6 +20,7 @@ import {
     TextField,
     TextInput,
 } from "react-admin";
+import {IAuthProviderState} from "@xilution/xilution-iam-react/dist/auth/@types";
 
 interface IProps {
     env: string;
@@ -167,24 +169,36 @@ const PetUpdate = (props: any) => (
     </Edit>
 );
 
-class PetAdmin extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class PetAdmin extends React.Component<IProps & IAuthProviderState, IState> {
+    constructor(props: IProps & IAuthProviderState) {
         super(props);
         this.state = {dataProvider: null};
     }
 
-    public componentDidMount() {
-        const {env, apiBaseUrl} = this.props;
+    public componentDidUpdate(prevProps: Readonly<IProps & IAuthProviderState>, prevState: Readonly<IState>, snapshot?: any): void {
+        if (this.props.accessToken && this.props.accessToken !== prevProps.accessToken) {
+            const {accessToken, apiBaseUrl} = this.props;
+            const httpLink = createHttpLink({
+                uri: `${apiBaseUrl}/graphql`,
+            });
 
-        buildGraphQLProvider({
-            buildQuery,
-            client: new ApolloClient({
-                cache: new InMemoryCache(),
-                link: createHttpLink({
-                    uri: `${apiBaseUrl}/graphql`,
+            const authLink = setContext((_, {headers}) => {
+                return {
+                    headers: {
+                        ...headers,
+                        authorization: accessToken ? `Bearer ${accessToken}` : "",
+                    }
+                }
+            });
+
+            buildGraphQLProvider({
+                buildQuery,
+                client: new ApolloClient({
+                    cache: new InMemoryCache(),
+                    link: authLink.concat(httpLink),
                 }),
-            }),
-        }).then((dataProvider: any) => this.setState({dataProvider}));
+            }).then((dataProvider: any) => this.setState({dataProvider}));
+        }
     }
 
     public render() {
