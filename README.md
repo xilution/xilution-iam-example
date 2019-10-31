@@ -144,6 +144,10 @@ We recommend running through it before moving on with the rest of this example.
     1. Open `http://localhost:3124` to view the running web application.
     1. `Ctrl-c` to stop.
 
+TODO - Describe how to register a new user through the IAM client.
+TODO - need to explain how to log out of the web client and IAM client.
+TODO - https://{sub-organization-id}.{environment}.iam.xilution.com
+
 ## Docker
 
 ### To build the Docker image
