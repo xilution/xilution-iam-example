@@ -43,7 +43,7 @@ post_response=$(curl -sSL -D - \
   -H "Authorization: Bearer ${access_token}" \
   -d "{
     \"@type\": \"client\",
-    \"name\": \"graphql-backend-example-web-client\",
+    \"name\": \"web-frontend-example-web-client\",
     \"grants\": [
       \"authorization_code\",
       \"refresh_token\"
