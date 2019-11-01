@@ -92,7 +92,7 @@ TODO - explain this graph
 
 TODO - explain this graph
 
-* Xilution [Zebra](https://products.xilution.com/basics/zebrah) is part of Xilution's IAM suite and is used to authenticate and authorize Rhino users and Hippo clients.
+* Xilution [Zebra](https://products.xilution.com/basics/zebra) is part of Xilution's IAM suite and is used to authenticate and authorize Rhino users and Hippo clients.
 
 ## Features
 
@@ -123,9 +123,9 @@ We recommend running through it before moving on with the rest of this example.
 
 1. Run `touch .env` to create a new environment variables file.
 1. Run `echo "XILUTION_ENVIRONMENT={environment}" >> .env` to add your environment preference to the environment an variables file (.env).
-    * {environment} is a Xilution environment. One of 'test' or 'prod'. Should be the same environment you used in `xilution-graphql-backend-example`. 
+    * {environment} is a Xilution environment. One of 'test' or 'prod'. Should be the same environment you used in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example). 
 1. Run `echo "XILUTION_SUB_ORGANIZATION_ID={sub-organization-id}" >> .env`.
-    * {sub-organization-id} is found in the `.env` file created when you ran through `xilution-graphql-backend-example`. 
+    * {sub-organization-id} is found in the `.env` file created when you ran through [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example). 
 
 ### Account Organization Authentication
 
@@ -192,37 +192,11 @@ Note: Requires Account Organization Authentication
 
 1. Run `export $(grep -v '^#' .env | xargs)` to export the environment variables saved to the environment variables file into your current terminal session.
 1. Run `yarn start-connected-to-locally-hosted-api` or `yarn start-connected-to-fox-hosted-api`.
-
-    1. Open `http://localhost:3124` to view the running web application.
-    1. `Ctrl-c` to stop.
-
-TODO - Describe how to register a new user through the IAM client.
-TODO - need to explain how to log out of the web client and IAM client.
-TODO - https://{sub-organization-id}.{environment}.iam.xilution.com
-
-## Docker
-
-### To build the Docker image
-
-This tags your docker image as `xilution-web-frontend-example`.
-
-1. Run `yarn docker:build`.
-
-### To run the Docker image locally
-
-1. Run `yarn docker:start`.
-
-    * Open `http://localhost:3124` to view the running web application.
-
-### To stop the Docker image
-
-1. Run `yarn docker:stop`.
-
-### To publish the Docker image to Docker Hub
-
-You'll need a [Docker Hub](https://hub.docker.com/) account to execute the following.
-
-1. Run `yarn docker:publish` to push the image to your Docker Hub account.
+    * An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) needs to be running locally to start the app connected to a locally hosted API.
+    * Likewise, an instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) needs to be running on [Fox](https://products.xilution.com/integration/fox) to start the app connected to a Fox hosted API.
+1. Open http://localhost:3124 in a browser to view the running web application.
+    * When you first access the app, you will be redirected to Xilution's IAM client where you can sign up a new user for your application. Once the new user is created, the IAM client will redirect you to a Sign In page.
+1. `Ctrl-c` to stop.
 
 ## Xilution Coyote
 
@@ -260,14 +234,14 @@ This example must be built before you can deploy it to your provisioned Coyote i
 
 ### List Your Coyote Instance Content
 
-the instance needs to be provisioned before your content is publicly available.
+The instance needs to be provisioned before your content is publicly available.
 
 1. Run `yarn xln:list-instance-content` to view the content published to your Coyote instance.
 
 ### Access Your Content Hosted on Coyote
 
 1. Run `cat .env | grep XILUTION_INSTANCE_ID` to see your Coyote Instance ID.
-1. Open `https://{instance-id}.prod.coyote.content-delivery.xilution` in a browser.
+1. Open https://{instance-id}.prod.coyote.content-delivery.xilution in a browser.
 
 ### Deprovision the Coyote Instance
 
