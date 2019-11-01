@@ -212,7 +212,7 @@ This tags your docker image as `xilution-web-frontend-example`.
 
 1. Run `yarn docker:start`.
 
-    * Open `http://localhost` to view the running web application.
+    * Open `http://localhost:3124` to view the running web application.
 
 ### To stop the Docker image
 
