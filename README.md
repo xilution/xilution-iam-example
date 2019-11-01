@@ -100,16 +100,7 @@ TODO - add features
 
 ## Prerequisites
 
-1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
-1. Install NVM: https://github.com/nvm-sh/nvm
-1. Install Yarn: https://yarnpkg.com
-1. Install jq: https://stedolan.github.io/jq/
-1. Install cURL: https://curl.haxx.se/
-1. Create a Xilution Account
-    1. Open [https://prod.register.xilution.com](https://prod.register.xilution.com) to create a Xilution Prod account.
-    1. Open [https://test.register.xilution.com](https://test.register.xilution.com) to create a Xilution Test account.
-    
-    * Note: Xilution Test and Prod accounts are not synchronized.
+1. Run through https://github.com/xilution/xilution-graphql-backend-example to create a GraphQL enabled API.
 
 ## General
 
