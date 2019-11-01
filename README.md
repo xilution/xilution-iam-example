@@ -98,16 +98,6 @@ TODO - explain this graph
 
 TODO - add features
 
-## General
-
-### To Install Dependencies
-
-1. Run `yarn install` to download dependencies.
-
-### To Verify The Source Code
-
-1. Run `yarn verify`.
-
 ## Prerequisites
 
 1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
@@ -120,6 +110,16 @@ TODO - add features
     1. Open [https://test.register.xilution.com](https://test.register.xilution.com) to create a Xilution Test account.
     
     * Note: Xilution Test and Prod accounts are not synchronized.
+
+## General
+
+### To Install Dependencies
+
+1. Run `yarn install` to download dependencies.
+
+### To Verify The Source Code
+
+1. Run `yarn verify`.
 
 ## Set Up
 
