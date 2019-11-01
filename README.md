@@ -29,74 +29,114 @@ An example demonstrating how to build a web app using Xilution's IAM suite (Elep
 
 ## Use Case
 
-TODO - Describe the use case
+**As:** a frontend app builder who creates apps for multiple clients.
+
+**I want:** a web app that restricts access to unknown users.
+
+**So that:** I can build a pet data management web app for one of my clients.
+
+## Xilution Product Hierarchy
 
 ```text
-             +------------------+
-             | Xilution Account |
-             +--------+---------+
-                      |
-                      v
-               +------+-------+
-               | Organization |
-               +------+-------+
-                      |
-                      v
-           +----------+----------+
-           |    [ Elephant ]     |
-           | Sub Organization(s) |
-           +----------+----------+
-                      |
-                      v
-      +--------------------------------+
-      |               |                |
-      v               v                v
-+-----+-----+   +-----+-----+   +------+-------+
-| [ Hippo ] |   | [ Rhino ] |   |  [ Coyote ]  |
-| Client(s) |   |  User(s)  |   | Instances(s) |
-+-----------+   +-----------+   +--------------+
+                 +------------------+
+                 | Xilution Account |
+                 +--------+---------+
+                          |
+                          v
+                   +------+-------+
+                   | Organization +--------------+
+                   +------+-------+              |
+                          |                      |
+                          v                      |
+               +----------+----------+           |
+               |    [ Elephant ]     |           |
+               | Sub-Organization(s) |           |
+               +----------+----------+           |
+                          |                      |
+                          v                      |
+          +--------------------------------+     |
+          |               |                |     |
+          v               v                v     v
+    +-----+-----+   +-----+-----+      +---+-----+---+
+    | [ Hippo ] |   | [ Rhino ] |      | [ Coyote ]  |
+    | Client(s) |   |  User(s)  |      | Instance(s) |
+    +-----------+   +-----------+      +-------------+
 ```
 
-TODO - explain this graph
+* [Elephant](https://products.xilution.com/basics/elephant)
+* [Hippo](https://products.xilution.com/basics/hippo)
+* [Rhino](https://products.xilution.com/basics/rhino)
+* [Coyote](https://products.xilution.com/content-delivery/coyote)
 
-* Xilution [Elephant](https://products.xilution.com/basics/elephant) is part of Xilution's IAM suite and is used to manage sub-organizations.
-* Xilution [Hippo](https://products.xilution.com/basics/hippo) is part of Xilution's IAM suite and is used to manage sub-organization clients.
-* Xilution [Rhino](https://products.xilution.com/basics/rhino) is part of Xilution's IAM suite and is used to manage sub-organization users.
-* Xilution [Coyote](https://products.xilution.com/content-delivery/coyote) is a static content hosting service.
+When you create a Xilution account, an Organization record is created for you.
+This is referred to as your "Account Organization" in the instructions below.
+As a frontend app builder who supports multiple clients, you can create multiple Sub-Organizations via Xilution Elephant.
+One for each client you support.
+This allows you to separate client resource management and billing from your Account Organization and other Sub-Organizations.
+
+Xilution Hippo is part of Xilution's IAM suite and manages Sub-Organization clients.
+A client is a reference to a web or mobile application.
+In this example, you'll create one Sub-Organization client.
+
+Xilution Rhino is part of Xilution's IAM suite and manages Sub-Organization users.
+In this example, you'll create one Sub-Organization user.
+
+Xilution Coyote is a static content hosting service.
+You can associate Coyote instances with your Account Organization and/or Sub-Organizations.
+In this example, you'll associated a Coyote instance with a Sub-Organization.
+
+## Implemented Solution
 
 ```text
-                       +-------------+
-                 +---->+  [ Hippo ]  |
-                 |     | Client Mgmt |
-+--------+       |     +-------------+
-|  IAM   +-------+
-| Client +-------+
-+-+----+-+       |      +-----------+
-  ^    |         +----->+ [ Zebra ] |
-  |    |                |   Auth    |
-  |    |                +-----+-----+
-  |    |                      ^
-  |    |                      |
-  |    v                      |
-+-+----+-+                 +--+--+
-|  Web   +---------------->+ API |
-| Client |                 +-----+
-+---+----+
-    ^
-    |
-    |                +------------------------+
-    +----------------+       [ Coyote ]       |
-                     | Static Content Hosting |
-                     +------------------------+
+                           +-------------+
+                     +---->+  [ Hippo ]  |
+                     |     | Client Mgmt |
+    +--------+       |     +-------------+
+    |  IAM   +-------+
+    | Client +-------+
+    +-+----+-+       |      +-----------+
+      ^    |         +----->+ [ Zebra ] |
+      |    |                |   Auth    |
+      |    |                +--+-----+--+
+      |    |                   ^     ^
+      |    |                   |     |
+      |    v                   |     |
+    +-+----+-+                 |     |
+    |  Web   +-----------------+  +--+--+
+    | Client +------------------->+ API |
+    +---+----+                    +-----+
+        ^
+        |
+        |                +------------------------+
+        +----------------+       [ Coyote ]       |
+                         | Static Content Hosting |
+                         +------------------------+
 ```
 
-TODO - explain this graph
+* [Zebra](https://products.xilution.com/basics/zebra)
 
-* Xilution [Zebra](https://products.xilution.com/basics/zebra) is part of Xilution's IAM suite and is used to authenticate and authorize Rhino users and Hippo clients.
+When you complete this example, you will create a Web Client that integrates with the API created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
+The Web Client forwards unauthenticated requests to the Xilution IAM Client.
+The Xilution IAM Client is part of the Xilution IAM Suite and provides turn-key user authentication, registration and password management services.
+The Xilution IAM Client works with `@xilution/xilution-iam-react` to execute an [Oauth 2.0 Authorization Code](https://oauth.net/2/grant-types/authorization-code/) authentication flow.
+The Xilution IAM Client interfaces with Xilution Hippo to retrieve Web Client information and interfaces with Xilution Zebra to authenticate a user.
+Zebra is part of Xilution's IAM suite and is used to authenticate and authorize Rhino users and Hippo clients.
+Once authenticated, the IAM Client forwards back to the Web Client with an authorization code which is used by `@xilution/xilution-iam-react` to retrieve an access token from Zebra.
+
+The Web Client is a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application).
+The site consists of a one HTML file, one JavaScript file and one `favicon.ico` file.
+These are considered "static content".
+The JavaScript file is built from the source code and dependencies found in this repo.
+Xilution Coyote hosts the Web Client's static content and makes it available on the public web.
 
 ## Features
 
-TODO - add features
+* Xilution's IAM Suite ([Elephant](https://products.xilution.com/basics/elephant), [Hippo](https://products.xilution.com/basics/hippo), [Rhino](https://products.xilution.com/basics/rhino) and [Zebra](https://products.xilution.com/basics/zebra)) for identity and access management.
+* Xilution [Coyote](https://products.xilution.com/integration/coyote) for static content hosting.
+* [React](https://reactjs.org/) web application.
+* [react-admin](https://github.com/marmelab/react-admin) to manage Pet data.
+* [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) React Provider pattern component which restricts access to Pet data to only known users.
+* Xilution IAM Client provides turn key user authentication and registration services.
 
 ## Prerequisites
 
@@ -153,9 +193,9 @@ Note: Requires Account Organization Authentication
 1. Run `yarn xln:zebra:activate-for-sub-organization`.
 1. Run `yarn xln:coyote:activate-for-sub-organization`.
 
-* Run `yarn xln:{product-name}:show-activation-for-sub-organization` to see the status of a sub-organization's product activation.
+* Run `yarn xln:{product-name}:show-activation-for-sub-organization` to see the status of a Sub-Organization's product activation.
     * {product-name} is one of `hippo`, `zebra` or `coyote`.
-* Run `yarn xln:{product-name}:deactivate-for-sub-organization` to deactivate a product for a sub-organization.
+* Run `yarn xln:{product-name}:deactivate-for-sub-organization` to deactivate a product for a Sub-Organization.
 
 ### Add an IAM User to Sub-Organization
 
@@ -169,10 +209,8 @@ Note: Requires Account Organization Authentication
     * {username} is the new user's username.
     * {code} is the verification code the you received in your email inbox.
 
-* To see the sub-organization's users run, `yarn xln:rhino:show-users`.
-* To delete a sub-organization's user run, `yarn xln:rhino:delete-user {user-id}`.
-
-TODO - make a note about needing a credit card in Prod.
+* To see the Sub-Organization's users run, `yarn xln:rhino:show-users`.
+* To delete a Sub-Organization's user run, `yarn xln:rhino:delete-user {user-id}`.
 
 ### Add Clients to the Sub-Organization
 
@@ -181,8 +219,8 @@ Note: Requires Account Organization Authentication
 1. Run `yarn xln:hippo:create-iam-client`.
 1. Run `yarn xln:hippo:create-web-client`.
 
-* To see the sub-organization's clients run, `yarn xln:hippo:show-clients`.
-* To delete a sub-organization's client run, `yarn xln:hippo:delete-client {client-id}`.
+* To see the Sub-Organization's clients run, `yarn xln:hippo:show-clients`.
+* To delete a Sub-Organization's client run, `yarn xln:hippo:delete-client {client-id}`.
 
 ### Update the Sub-Organization's IAM Client ID
 
