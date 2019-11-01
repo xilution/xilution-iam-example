@@ -118,10 +118,10 @@ In this example, you'll associated a Coyote instance with a Sub-Organization.
 When you complete this example, you will create a Web Client that integrates with the API created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
 The Web Client forwards unauthenticated requests to the Xilution IAM Client.
 The Xilution IAM Client is part of the Xilution IAM Suite and provides turn-key user authentication, registration and password management services.
-The Xilution IAM Client works with `@xilution/xilution-iam-react` to execute an [Oauth 2.0 Authorization Code](https://oauth.net/2/grant-types/authorization-code/) authentication flow.
+The Xilution IAM Client works with [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to execute an [Oauth 2.0 Authorization Code](https://oauth.net/2/grant-types/authorization-code/) authentication flow.
 The Xilution IAM Client interfaces with Xilution Hippo to retrieve Web Client information and interfaces with Xilution Zebra to authenticate a user.
 Zebra is part of Xilution's IAM suite and is used to authenticate and authorize Rhino users and Hippo clients.
-Once authenticated, the IAM Client forwards back to the Web Client with an authorization code which is used by `@xilution/xilution-iam-react` to retrieve an access token from Zebra.
+Once authenticated, the IAM Client forwards back to the Web Client with an authorization code which is used by [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to retrieve an access token from Zebra.
 
 The Web Client is a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application).
 The site consists of a one HTML file, one JavaScript file and one `favicon.ico` file.
@@ -153,6 +153,19 @@ Xilution Coyote hosts the Web Client's static content and makes it available on 
 1. Run `yarn verify`.
 
 ## Set Up
+
+The following instructions are enabled via a large suite of scripts found in the [scripts](./scripts) folder of this repo.
+You can see the changes made to your account via the scripts through our product portals.
+You'll authenticate to the portals with your Xilution account username and password.
+
+| Portal   | Prod                                                      | Test                                                      |
+|----------|-----------------------------------------------------------|-----------------------------------------------------------|
+| Account  | https://prod.portal.xilution.com/                         | https://test.portal.xilution.com/                         |
+| Elephant | https://prod.portal.elephant.basics.xilution.com/         | https://test.portal.elephant.basics.xilution.com/         |
+| Rhino    | https://prod.portal.rhino.basics.xilution.com/            | https://test.portal.rhino.basics.xilution.com/            |
+| Hippo    | https://prod.portal.hippo.basics.xilution.com/            | https://test.portal.hippo.basics.xilution.com/            |
+| Coyote   | https://prod.portal.coyote.content-delivery.xilution.com/ | https://test.portal.coyote.content-delivery.xilution.com/ |
+| Fox      | https://prod.portal.fox.integration.xilution.com/         | https://test.portal.fox.integration.xilution.com/         |
 
 ### API
 
