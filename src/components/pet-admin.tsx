@@ -1,8 +1,9 @@
 import {injectAuth} from "@xilution/xilution-iam-react";
+import {IAuthProviderState} from "@xilution/xilution-iam-react/dist/auth/@types";
 import {InMemoryCache} from "apollo-cache-inmemory";
 import {ApolloClient} from "apollo-client";
-import {createHttpLink} from "apollo-link-http";
 import {setContext} from "apollo-link-context";
+import {createHttpLink} from "apollo-link-http";
 import gql from "graphql-tag";
 import buildGraphQLProvider from "ra-data-graphql";
 import * as React from "react";
@@ -20,7 +21,6 @@ import {
     TextField,
     TextInput,
 } from "react-admin";
-import {IAuthProviderState} from "@xilution/xilution-iam-react/dist/auth/@types";
 
 interface IProps {
     env: string;
@@ -187,8 +187,8 @@ class PetAdmin extends React.Component<IProps & IAuthProviderState, IState> {
                     headers: {
                         ...headers,
                         authorization: accessToken ? `Bearer ${accessToken}` : "",
-                    }
-                }
+                    },
+                };
             });
 
             buildGraphQLProvider({
