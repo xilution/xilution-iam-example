@@ -125,18 +125,17 @@ Once authenticated, the IAM Client forwards back to the Web Client with an autho
 
 The Web Client is a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application).
 The site consists of a one HTML file, one JavaScript file and one `favicon.ico` file.
-These are considered "static content".
-The JavaScript file is built from the source code and dependencies found in this repo.
-Xilution Coyote hosts the Web Client's static content and makes it available on the public web.
+This "static content" is used to render the web app in an end user's browser and is built from the source code and dependencies found in this repo.
+Xilution Coyote makes the Web Client's static content available on the public web.
 
 ## Features
 
 * Xilution's IAM Suite ([Elephant](https://products.xilution.com/basics/elephant), [Hippo](https://products.xilution.com/basics/hippo), [Rhino](https://products.xilution.com/basics/rhino) and [Zebra](https://products.xilution.com/basics/zebra)) for identity and access management.
 * Xilution [Coyote](https://products.xilution.com/integration/coyote) for static content hosting.
-* [React](https://reactjs.org/) web application.
-* [react-admin](https://github.com/marmelab/react-admin) to manage Pet data.
-* [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) React Provider pattern component which restricts access to Pet data to only known users.
 * Xilution IAM Client provides turn key user authentication and registration services.
+* [React](https://reactjs.org/) single page web application.
+    * [react-admin](https://github.com/marmelab/react-admin) React component to manage Pet data.
+    * [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) React component which interacts with the Xilution IAM Client to restricts Pet data access to only known users.
 
 ## Prerequisites
 
