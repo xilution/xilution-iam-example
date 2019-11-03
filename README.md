@@ -175,9 +175,9 @@ We recommend running through it before moving on with the rest of this example.
 ### Environment Variables
 
 1. Run `touch .env` to create a new environment variables file.
-1. Run `echo "XILUTION_ENVIRONMENT={environment}" >> .env` to add your environment preference to the environment an variables file (.env).
+1. Run `echo "XILUTION_ENVIRONMENT={environment}" >>.env` to add your environment preference to the environment an variables file (.env).
     * {environment} is a Xilution environment. One of 'test' or 'prod'. Should be the same environment you used in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example). 
-1. Run `echo "XILUTION_SUB_ORGANIZATION_ID={sub-organization-id}" >> .env`.
+1. Run `echo "XILUTION_SUB_ORGANIZATION_ID={sub-organization-id}" >>.env`.
     * {sub-organization-id} is found in the `.env` file created when you ran through [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example). 
 
 ### Account Organization Authentication
@@ -241,28 +241,47 @@ Note: Requires Account Organization Authentication
 
 ## Running Locally
 
+### Connect to a Locally Hosted API
+
+1. Run `echo API_BASE_URL=http://localhost:3123`.
 1. Run `export $(grep -v '^#' .env | xargs)` to export the environment variables saved to the environment variables file into your current terminal session.
-1. Run `yarn start-connected-to-locally-hosted-api` or `yarn start-connected-to-fox-hosted-api`.
-    * An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) needs to be running locally to start the app connected to a locally hosted API.
-    * Likewise, an instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) needs to be running on [Fox](https://products.xilution.com/integration/fox) to start the app connected to a Fox hosted API.
+1. Run `yarn start-connected-to-locally-hosted-api`.
+    * An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running locally to start the app connected to a locally hosted API.
 1. Open http://localhost:3124 in a browser to view the running web application.
     * When you first access the app, you will be redirected to Xilution's IAM client where you can sign up a new user for your application. Once the new user is created, the IAM client will redirect you to a Sign In page.
 1. `Ctrl-c` to stop.
 
-## Xilution Coyote
+### Connect to a Fox Hosted API
 
-The following instructions describe how to host this example on Xilution Coyote
+An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running on [Fox](https://products.xilution.com/integration/fox) to start the app connected to a Fox hosted API.
+
+1. Run `echo API_BASE_URL=https://{fox-instance-id}.{environment}.fox.integration.xilution.com >>.env`.
+    * {fox-instance-id} is the ID of the Fox instance you created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
+1. Run `export $(grep -v '^#' .env | xargs)` to export the environment variables saved to the environment variables file into your current terminal session.
+1. Run `yarn start-connected-to-locally-hosted-api` or `yarn start-connected-to-fox-hosted-api`.
+1. Open http://localhost:3124 in a browser to view the running web application.
+    * When you first access the app, you will be redirected to Xilution's IAM client where you can sign up a new user for your application. Once the new user is created, the IAM client will redirect you to a Sign In page.
+1. `Ctrl-c` to stop.
+
+## Host on Xilution Coyote
+
+The following instructions describe how to host this example on Xilution Coyote.
+An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running on [Fox](https://products.xilution.com/integration/fox) to start the app connected to a Fox hosted API.
 
 ### Create a Coyote Instance
+
+Note: Requires Account Organization Authentication
 
 A Coyote Instance contains data that instructs Coyote on how to host your content.
 
 1. Run `yarn xln:coyote:create-instance`.
 
 * To see your instances, run `yarn xln:coyote:show-instances`.
-* To delete a instance, run `yarn xln:coyote:delete-instance {instance-id}`
+* To delete a instance, run `yarn xln:coyote:delete-instance {coyote-instance-id}`
 
 ### Provision the Coyote Instance
+
+Note: Requires Account Organization Authentication
 
 Provisioning a Coyote Instance makes your content available on the public internet.
 
@@ -278,23 +297,33 @@ Provisioning a Coyote Instance makes your content available on the public intern
 
 ### Upload Your Content to your Provisioned Coyote Instance
 
+Note: Requires Account Organization Authentication
+
 This example must be built before you can deploy it to your provisioned Coyote instance.
 
+1. Run `echo API_BASE_URL=https://{fox-instance-id}.{environment}.fox.integration.xilution.com >>.env`.
+    * {fox-instance-id} is the ID of the Fox instance you created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
 1. Run `yarn build` to build the example.
 1. Run `yarn xln:coyote:upload-instance-content` to upload the built content to your provisioned Coyote instance.
 
 ### List Your Coyote Instance Content
 
-The instance needs to be provisioned before your content is publicly available.
+Note: Requires Account Organization Authentication
+
+The instance must be provisioned before your content is publicly available.
 
 1. Run `yarn xln:list-instance-content` to view the content published to your Coyote instance.
 
 ### Access Your Content Hosted on Coyote
 
+Note: Requires Account Organization Authentication
+
 1. Run `cat .env | grep XILUTION_INSTANCE_ID` to see your Coyote Instance ID.
-1. Open https://{instance-id}.prod.coyote.content-delivery.xilution in a browser.
+1. Open https://{coyote-instance-id}.prod.coyote.content-delivery.xilution in a browser.
 
 ### Deprovision the Coyote Instance
+
+Note: Requires Account Organization Authentication
 
 Deprovisioning a Coyote Instance deletes the instance's content and takes it offline.
 
@@ -310,7 +339,9 @@ Deprovisioning a Coyote Instance deletes the instance's content and takes it off
 
 ### Delete the Coyote Instance
 
-1. Run `yarn xln:coyote:delete-instance {instance-id}`, to delete the Coyote instance.
+Note: Requires Account Organization Authentication
+
+1. Run `yarn xln:coyote:delete-instance {coyote-instance-id}`, to delete the Coyote instance.
 
 ---
 Copyright 2019 Teapot, LLC.  
