@@ -31,7 +31,7 @@ An example demonstrating how to build a web app using Xilution's IAM suite (Elep
 
 **As:** a frontend app builder who creates apps for multiple clients.
 
-**I want:** a web app that restricts access to unknown users.
+**I want:** a web app that restricts access to only known users.
 
 **So that:** I can build a pet data management web app for one of my clients.
 
