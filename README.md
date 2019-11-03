@@ -119,7 +119,7 @@ When you complete this example, you will create a Web Client that integrates wit
 The Web Client forwards unauthenticated requests to the Xilution IAM Client.
 The Xilution IAM Client is part of the Xilution IAM Suite and provides turn-key user authentication, registration and password management services.
 The Xilution IAM Client works with [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to execute an [Oauth 2.0 Authorization Code](https://oauth.net/2/grant-types/authorization-code/) authentication flow.
-The Xilution IAM Client interfaces with Xilution Hippo to retrieve Web Client information and interfaces with Xilution Zebra to authenticate a user.
+The Xilution IAM Client interfaces with Xilution Hippo to retrieve some display information about the Web Client and interfaces with Xilution Zebra to authenticate a user.
 Zebra is part of Xilution's IAM suite and is used to authenticate and authorize Rhino users and Hippo clients.
 Once authenticated, the IAM Client forwards back to the Web Client with an authorization code which is used by [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to retrieve an access token from Zebra.
 
