@@ -1,8 +1,8 @@
-<h1 align="center" style="border-bottom: none;">xilution-web-frontend-example</h1>
+<h1 style="border-bottom: none; text-align: center;">xilution-web-frontend-example</h1>
 <p>
 An example demonstrating how to build a web app using Xilution's IAM suite (Elephant, Rhino, Hippo and Zebra) and Coyote.
 <p>
-<p align="center">
+<p style="text-align: center;">
   <a href="https://github.com/xilution/xilution-web-frontend-example/issues">
     <img alt="Issues" src="https://img.shields.io/github/issues/xilution/xilution-web-frontend-example.svg">
   </a>
@@ -16,12 +16,12 @@ An example demonstrating how to build a web app using Xilution's IAM suite (Elep
     <img alt="License" src="https://img.shields.io/github/license/xilution/xilution-web-frontend-example.svg">
   </a>
 </p>
-<p align="center">
+<p style="text-align: center;">
   <a href="https://travis-ci.org/xilution/xilution-web-frontend-example">
     <img alt="Travis" src="https://img.shields.io/travis/xilution/xilution-web-frontend-example.svg">
   </a>
 </p>
-<p align="center">
+<p style="text-align: center;">
   <a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fxilution%2Fxilution-web-frontend-example">
     <img alt="Tweet" src="https://img.shields.io/twitter/url/https/github.com/xilution/xilution-web-frontend-example.svg?style=social">
   </a>
@@ -88,10 +88,10 @@ In this example, you'll associated a Coyote instance with a Sub-Organization.
 ## Implemented Solution
 
 ```text
-                           +-------------+
-                     +---->+  [ Hippo ]  |
-                     |     | Client Mgmt |
-    +--------+       |     +-------------+
+                           +-------------------+
+                     +---->+     [ Hippo ]     |
+                     |     | Client Management |
+    +--------+       |     +-------------------+
     |  IAM   +-------+
     | Client +-------+
     +-+----+-+       |      +-----------+
