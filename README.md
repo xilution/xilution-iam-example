@@ -1,7 +1,15 @@
 <h1>xilution-web-frontend-example</h1>
 <p>
-An example demonstrating how to build a web app using Xilution's IAM suite (Elephant, Rhino, Hippo and Zebra) and Coyote.
+An example demonstrating how to build a web app using...
 <p>
+<ul>
+    <li>
+        Xilution's IAM Suite (<a href="https://products.xilution.com/basics/elephant">Elephant</a>, <a href="https://products.xilution.com/basics/hippo">Hippo</a>, <a href="https://products.xilution.com/basics/rhino">Rhino</a>, <a href="https://products.xilution.com/basics/zebra">Zebra</a>)
+    </li>
+    <li>
+        Xilution's Static Content Hosting Service (<a href="https://products.xilution.com/content-delivery/coyote">Fox</a>)
+    </li>
+</ul>
 <p>
   <a href="https://github.com/xilution/xilution-web-frontend-example/issues">
     <img alt="Issues" src="https://img.shields.io/github/issues/xilution/xilution-web-frontend-example.svg">
@@ -139,6 +147,7 @@ Xilution Coyote makes the Web Client's static content available on the public we
 
 ## Prerequisites
 
+1. Install OpenSSL: https://www.openssl.org/
 1. Run through https://github.com/xilution/xilution-graphql-backend-example to create a GraphQL enabled API.
 
 ## General
