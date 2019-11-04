@@ -53,10 +53,10 @@ get_response=$(curl -s \
   -H "Authorization: Bearer ${access_token}" \
   "${url}")
 
-echo "${get_response}" | jq "{instance_id: .id, instance_name: .name}"
+echo "${get_response}" | jq "{coyote_instance_id: .id, instance_name: .name}"
 
-xilution_instance_id=$(echo "${get_response}" | jq -r ".id")
+coyote_instance_id=$(echo "${get_response}" | jq -r ".id")
 
-update_environment_variable XILUTION_INSTANCE_ID "${xilution_instance_id}"
+update_environment_variable XILUTION_COYOTE_INSTANCE_ID "${coyote_instance_id}"
 
 echo "All Done! Wrote env variables to .env."
