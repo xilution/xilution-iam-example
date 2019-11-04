@@ -311,8 +311,8 @@ Note: Requires Account Organization Authentication
 
 Provisioning a Coyote Instance makes your content available on the public internet.
 
-1. Run `yarn xln:provision-coyote-instance`, to provision the Coyote instance.
-1. Run `yarn xln:show-coyote-instance-status`, to see the status of your Coyote instance.
+1. Run `yarn xln:coyote:provision-instance`, to provision the Coyote instance.
+1. Run `yarn xln:coyote:show-instance-status`, to see the status of your Coyote instance.
     * It can take up to 2 minutes to fully provision your Fox instance.
     * Provisioning is complete when you see the following.
         ```json
@@ -338,7 +338,7 @@ Note: Requires Account Organization Authentication
 
 The instance must be provisioned before your content is publicly available.
 
-1. Run `yarn xln:list-instance-content` to view the content published to your Coyote instance.
+1. Run `yarn xln:coyote:list-instance-content` to view the content published to your Coyote instance.
 
 ### Access Your Content Hosted on Coyote
 
