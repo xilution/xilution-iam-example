@@ -7,7 +7,7 @@ An example demonstrating how to build a web app using...
         Xilution's IAM Suite (<a href="https://products.xilution.com/api/catalog/basics/elephant">Elephant</a>, <a href="https://products.xilution.com/api/catalog/basics/hippo">Hippo</a>, <a href="https://products.xilution.com/api/catalog/basics/rhino">Rhino</a>, <a href="https://products.xilution.com/api/catalog/basics/zebra">Zebra</a>)
     </li>
     <li>
-        Xilution's Static Content Hosting Service (<a href="https://products.xilution.com/api/catalog/content-delivery/coyote">Fox</a>)
+        Xilution's Static Content Hosting Service (<a href="https://products.xilution.com/api/catalog/content-delivery/coyote">Coyote</a>)
     </li>
 </ul>
 <p>
@@ -135,8 +135,8 @@ When you complete this example, you will create a single page web app that integ
 * [Coyote](https://products.xilution.com/api/catalog/content-delivery/coyote)
 
 The Web Client forwards unauthenticated requests to the Xilution IAM Client.
-The Xilution IAM Client is part of the Xilution IAM Suite and provides turn-key user authentication, registration and password management services.
-The Xilution IAM Client works with [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to execute an [Oauth 2.0 Authorization Code](https://oauth.net/2/grant-types/authorization-code/) authentication flow.
+The Xilution IAM Client is part of the Xilution IAM Suite and provides turnkey user authentication, registration and password management services.
+The Xilution IAM Client works with [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to execute an [OAuth 2.0 Authorization Code](https://oauth.net/2/grant-types/authorization-code/) authentication flow.
 The Xilution IAM Client interfaces with Xilution Hippo to retrieve some display information about the Web Client and interfaces with Xilution Zebra to authenticate a user.
 Zebra is part of Xilution's IAM suite and is used to authenticate and authorize Rhino users and Hippo clients.
 Once authenticated, the IAM Client forwards back to the Web Client with an authorization code which is used by [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to retrieve an access token from Zebra.
@@ -150,21 +150,13 @@ Xilution Coyote makes the Web Client's static content available on the public we
 
 * Xilution's IAM Suite ([Elephant](https://products.xilution.com/api/catalog/basics/elephant), [Hippo](https://products.xilution.com/api/catalog/basics/hippo), [Rhino](https://products.xilution.com/api/catalog/basics/rhino) and [Zebra](https://products.xilution.com/api/catalog/basics/zebra)) for identity and access management.
 * Xilution [Coyote](https://products.xilution.com/api/catalog/integration/coyote) for static content hosting.
-* Xilution IAM Client provides turn key user authentication and registration services.
+* Xilution IAM Client provides turnkey user authentication and registration services.
 * [React](https://reactjs.org/) single page web application.
     * [react-admin](https://github.com/marmelab/react-admin) React component to manage Pet data.
     * [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) React component which interacts with the Xilution IAM Client to restricts Pet data access to only known users.
 
 ## Prerequisites
 
-1. Create a Xilution Account
-    1. Open [https://prod.register.xilution.com](https://prod.register.xilution.com) to create a Xilution **Prod** account.
-        * :mega: A valid credit card :credit_card: must be associated with your Xilution Account to use Xilution Products in Prod.
-          Use the [Prod environment Xilution Admin Portal](https://prod.portal.xilution.com) to add a Credit Card to your Xilution Account.
-    1. Open [https://test.register.xilution.com](https://test.register.xilution.com) to create a Xilution **Test** account.
-        * Xilution Test and Prod accounts are not synchronized.
-        * Some Xilution products have usage and time to live restrictions in our Test environment.
-          See [product documentation](https://test.products.xilution.com/) for complete restriction details.
 1. Run through https://github.com/xilution/xilution-graphql-backend-example to create a GraphQL enabled API.
 1. Install OpenSSL: https://www.openssl.org/
 
@@ -269,7 +261,7 @@ Note: Requires Account Organization Authentication
 
 ### Connect to a Locally Hosted API
 
-1. Run `echo API_BASE_URL=http://localhost:3123`.
+1. Run `echo API_BASE_URL=http://localhost:3123 >>.env`.
 1. Run `export $(grep -v '^#' .env | xargs)` to export the environment variables saved to the environment variables file into your current terminal session.
 1. Run `yarn start-connected-to-locally-hosted-api`.
     * An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running locally to start the app connected to a locally hosted API.

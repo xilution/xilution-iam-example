@@ -4,4 +4,4 @@ set -e
 
 . ./scripts/common-functions.sh
 
-account_management_activate "9ead02f5d8a0420aaa5668e863055168"
+account_management_activate "c3d91f28476048d38a7259a9eddd1025"

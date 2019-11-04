@@ -53,8 +53,6 @@ post_response=$(curl -sSL -D - \
   "https://${environment}.rhino.basics.api.xilution.com/organizations/${sub_organization_id}/sign-up-user" \
   -o /dev/null)
 
-echo "${post_response}"
-
 url=$(echo "${post_response}" | awk '/^location:/ {print $2;}')
 url=${url%$'\r'}
 
