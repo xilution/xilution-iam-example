@@ -341,7 +341,7 @@ The instance must be provisioned before your content is publicly available.
 Note: Requires Account Organization Authentication
 
 1. Run `cat .env | grep XILUTION_COYOTE_INSTANCE_ID` to see your Coyote Instance ID.
-1. Open `https://{coyote-instance-id}.prod.coyote.content-delivery.xilution.com` in a browser.
+1. Open `https://{coyote-instance-id}.{environment}.coyote.content-delivery.xilution.com` in a browser.
 
 ### Deprovision the Coyote Instance
 
