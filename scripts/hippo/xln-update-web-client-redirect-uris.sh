@@ -64,8 +64,8 @@ response=$(curl -s \
     \"redirectUris\": [
       \"http://localhost:3124/#/pets\",
       \"http://localhost:3124/\",
-      \"https://${coyote_instance_id}.prod.coyote.content-delivery.xilution.com/#/pets\",
-      \"https://${coyote_instance_id}.prod.coyote.content-delivery.xilution.com/\"
+      \"https://${coyote_instance_id}.${environment}.coyote.content-delivery.xilution.com/#/pets\",
+      \"https://${coyote_instance_id}.${environment}.coyote.content-delivery.xilution.com/\"
     ],
     \"organizationId\": \"${sub_organization_id}\",
     \"clientUserId\": \"${iam_user_id}\",

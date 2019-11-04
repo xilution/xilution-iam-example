@@ -27,4 +27,4 @@ curl -s \
   -X GET \
   -H "Authorization: Bearer ${access_token}" \
   "https://${environment}.hippo.basics.api.xilution.com/organizations/${sub_organization_id}/clients?page-number=0&page-size=25" |
-  jq '.content | if (. | length > 0) then (.[] | {id: .id, name: .name}) else "No clients found." end'
+  jq '.content | if (. | length > 0) then (.[] | {id: .id, name: .name, redirectUris: .redirectUris}) else "No clients found." end'
