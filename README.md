@@ -159,8 +159,8 @@ Xilution Coyote makes the Web Client's static content available on the public we
 
 1. Create a Xilution Account
     1. Open [https://prod.register.xilution.com](https://prod.register.xilution.com) to create a Xilution **Prod** account.
-        * A valid credit card must be associated with your account to use Xilution Products in Prod.
-          You can use the [Prod environment Xilution Admin Portal](https://prod.portal.xilution.com) to add a Credit Card to your account.
+        * :mega: A valid credit card :credit_card: must be associated with your Xilution Account to use Xilution Products in Prod.
+          Use the [Prod environment Xilution Admin Portal](https://prod.portal.xilution.com) to add a Credit Card to your Xilution Account.
     1. Open [https://test.register.xilution.com](https://test.register.xilution.com) to create a Xilution **Test** account.
         * Xilution Test and Prod accounts are not synchronized.
         * Some Xilution products have usage and time to live restrictions in our Test environment.
