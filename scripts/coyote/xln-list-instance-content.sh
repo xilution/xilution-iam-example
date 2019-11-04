@@ -30,8 +30,10 @@ environment=${XILUTION_ENVIRONMENT}
 access_token=${XILUTION_ACCOUNT_ACCESS_TOKEN}
 sub_organization_id=${XILUTION_SUB_ORGANIZATION_ID}
 
-curl -s \
+response=$(curl -s \
   -X GET \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${access_token}" \
-  "https://${environment}.coyote.content-delivery.api.xilution.com/organizations/${sub_organization_id}/contents"
+  "https://${environment}.coyote.content-delivery.api.xilution.com/organizations/${sub_organization_id}/contents")
+
+echo "${response}"

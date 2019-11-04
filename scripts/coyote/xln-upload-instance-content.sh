@@ -33,7 +33,7 @@ bundle_data=$(openssl enc -A -base64 -in bundle.js)
 favicon_data=$(openssl enc -A -base64 -in favicon.ico)
 index_data=$(openssl enc -A -base64 -in index.html)
 
-curl \
+response=$(curl \
   -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${access_token}" \
@@ -54,4 +54,6 @@ curl \
       \"type\": \"text/html\"
     },
   ]" \
-  "https://${environment}.coyote.content-delivery.api.xilution.com/organizations/${sub_organization_id}/contents"
+  "https://${environment}.coyote.content-delivery.api.xilution.com/organizations/${sub_organization_id}/contents")
+
+echo "${response}"
