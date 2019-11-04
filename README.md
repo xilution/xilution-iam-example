@@ -214,7 +214,7 @@ Note: Requires Account Organization Authentication
 1. Run `yarn xln:coyote:activate-for-account-organization`.
 
 * Run `yarn xln:{product-name}:show-activation-for-account-organization` to see the status of an account organization's product activation.
-    * {product-name} is one of `elephant`, `hippo` or `rhino`.
+    * {product-name} is one of `elephant`, `hippo`, `rhino` or `coyote`.
 * Run `yarn xln:{product-name}:deactivate-for-account-organization` to deactivate a product for an account organization.
 
 ### Sub-Organization Product Activation
@@ -225,7 +225,7 @@ Note: Requires Account Organization Authentication
 1. Run `yarn xln:zebra:activate-for-sub-organization`.
 
 * Run `yarn xln:{product-name}:show-activation-for-sub-organization` to see the status of a Sub-Organization's product activation.
-    * {product-name} is one of `hippo`, `zebra` or `coyote`.
+    * {product-name} is one of `hippo` or `zebra`.
 * Run `yarn xln:{product-name}:deactivate-for-sub-organization` to deactivate a product for a Sub-Organization.
 
 ### Add an IAM User to Sub-Organization
