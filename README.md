@@ -98,6 +98,8 @@ In this example, you'll associated a Coyote instance with a Sub-Organization.
 
 ## Implemented Solution
 
+When you complete this example, you will create a single page web app that integrates with the API created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
+
 ```text
                            +-------------------+
                      +---->+     [ Hippo ]     |
@@ -124,9 +126,10 @@ In this example, you'll associated a Coyote instance with a Sub-Organization.
                          +------------------------+
 ```
 
+* [Hippo](https://products.xilution.com/api/catalog/basics/hippo)
 * [Zebra](https://products.xilution.com/api/catalog/basics/zebra)
+* [Coyote](https://products.xilution.com/api/catalog/content-delivery/coyote)
 
-When you complete this example, you will create a Web Client that integrates with the API created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
 The Web Client forwards unauthenticated requests to the Xilution IAM Client.
 The Xilution IAM Client is part of the Xilution IAM Suite and provides turn-key user authentication, registration and password management services.
 The Xilution IAM Client works with [@xilution/xilution-iam-react](https://github.com/xilution/xilution-iam-react) to execute an [Oauth 2.0 Authorization Code](https://oauth.net/2/grant-types/authorization-code/) authentication flow.
