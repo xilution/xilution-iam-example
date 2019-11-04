@@ -276,7 +276,7 @@ An instance of [xilution-graphql-backend-example](https://github.com/xilution/xi
 1. Run `echo API_BASE_URL=https://{fox-instance-id}.{environment}.fox.integration.xilution.com >>.env`.
     * {fox-instance-id} is the ID of the Fox instance you created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
 1. Run `export $(grep -v '^#' .env | xargs)` to export the environment variables saved to the environment variables file into your current terminal session.
-1. Run `yarn start-connected-to-locally-hosted-api` or `yarn start-connected-to-fox-hosted-api`.
+1. Run `yarn start-connected-to-fox-hosted-api`.
 1. Open http://localhost:3124 in a browser to view the running web application.
     * When you first access the app, you will be redirected to Xilution's IAM client where you can sign up a new user for your application. Once the new user is created, the IAM client will redirect you to a Sign In page.
 1. `Ctrl-c` to stop.

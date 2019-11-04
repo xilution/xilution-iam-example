@@ -19,8 +19,8 @@ if [[ -z "${XILUTION_WEB_CLIENT_ID}" ]]; then
   exit 1
 fi
 
-if [[ -z "${XILUTION_FOX_INSTANCE_ID}" ]]; then
-  echo "XILUTION_FOX_INSTANCE_ID not found in .env"
+if [[ -z "${API_BASE_URL}" ]]; then
+  echo "API_BASE_URL not found in .env"
   exit 1
 fi
 
@@ -28,6 +28,6 @@ webpack-dev-server \
   --env.XILUTION_ENVIRONMENT="${XILUTION_ENVIRONMENT}" \
   --env.XILUTION_SUB_ORGANIZATION_ID="${XILUTION_SUB_ORGANIZATION_ID}" \
   --env.XILUTION_WEB_CLIENT_ID="${XILUTION_WEB_CLIENT_ID}" \
-  --env.API_BASE_URL="https://${XILUTION_FOX_INSTANCE_ID}.${XILUTION_ENVIRONMENT}.fox.integration.xilution.com" \
+  --env.API_BASE_URL="${API_BASE_URL}" \
   --config ./webpack.config.js \
   --port 3124
