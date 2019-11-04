@@ -4,10 +4,10 @@ An example demonstrating how to build a web app using...
 <p>
 <ul>
     <li>
-        Xilution's IAM Suite (<a href="https://products.xilution.com/basics/elephant">Elephant</a>, <a href="https://products.xilution.com/basics/hippo">Hippo</a>, <a href="https://products.xilution.com/basics/rhino">Rhino</a>, <a href="https://products.xilution.com/basics/zebra">Zebra</a>)
+        Xilution's IAM Suite (<a href="https://products.xilution.com/api/catalog/basics/elephant">Elephant</a>, <a href="https://products.xilution.com/api/catalog/basics/hippo">Hippo</a>, <a href="https://products.xilution.com/api/catalog/basics/rhino">Rhino</a>, <a href="https://products.xilution.com/api/catalog/basics/zebra">Zebra</a>)
     </li>
     <li>
-        Xilution's Static Content Hosting Service (<a href="https://products.xilution.com/content-delivery/coyote">Fox</a>)
+        Xilution's Static Content Hosting Service (<a href="https://products.xilution.com/api/catalog/content-delivery/coyote">Fox</a>)
     </li>
 </ul>
 <p>
@@ -71,10 +71,10 @@ An example demonstrating how to build a web app using...
     +-----------+   +-----------+      +-------------+
 ```
 
-* [Elephant](https://products.xilution.com/basics/elephant)
-* [Hippo](https://products.xilution.com/basics/hippo)
-* [Rhino](https://products.xilution.com/basics/rhino)
-* [Coyote](https://products.xilution.com/content-delivery/coyote)
+* [Elephant](https://products.xilution.com/api/catalog/basics/elephant)
+* [Hippo](https://products.xilution.com/api/catalog/basics/hippo)
+* [Rhino](https://products.xilution.com/api/catalog/basics/rhino)
+* [Coyote](https://products.xilution.com/api/catalog/content-delivery/coyote)
 
 When you create a Xilution account, an Organization record is created for you.
 This is referred to as your "Account Organization" in the instructions below.
@@ -121,7 +121,7 @@ In this example, you'll associated a Coyote instance with a Sub-Organization.
                          +------------------------+
 ```
 
-* [Zebra](https://products.xilution.com/basics/zebra)
+* [Zebra](https://products.xilution.com/api/catalog/basics/zebra)
 
 When you complete this example, you will create a Web Client that integrates with the API created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
 The Web Client forwards unauthenticated requests to the Xilution IAM Client.
@@ -138,8 +138,8 @@ Xilution Coyote makes the Web Client's static content available on the public we
 
 ## Features
 
-* Xilution's IAM Suite ([Elephant](https://products.xilution.com/basics/elephant), [Hippo](https://products.xilution.com/basics/hippo), [Rhino](https://products.xilution.com/basics/rhino) and [Zebra](https://products.xilution.com/basics/zebra)) for identity and access management.
-* Xilution [Coyote](https://products.xilution.com/integration/coyote) for static content hosting.
+* Xilution's IAM Suite ([Elephant](https://products.xilution.com/api/catalog/basics/elephant), [Hippo](https://products.xilution.com/api/catalog/basics/hippo), [Rhino](https://products.xilution.com/api/catalog/basics/rhino) and [Zebra](https://products.xilution.com/api/catalog/basics/zebra)) for identity and access management.
+* Xilution [Coyote](https://products.xilution.com/api/catalog/integration/coyote) for static content hosting.
 * Xilution IAM Client provides turn key user authentication and registration services.
 * [React](https://reactjs.org/) single page web application.
     * [react-admin](https://github.com/marmelab/react-admin) React component to manage Pet data.
@@ -261,7 +261,7 @@ Note: Requires Account Organization Authentication
 
 ### Connect to a Fox Hosted API
 
-An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running on [Fox](https://products.xilution.com/integration/fox) to start the app connected to a Fox hosted API.
+An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running on [Fox](https://products.xilution.com/api/catalog/integration/fox) to start the app connected to a Fox hosted API.
 
 1. Run `echo API_BASE_URL=https://{fox-instance-id}.{environment}.fox.integration.xilution.com >>.env`.
     * {fox-instance-id} is the ID of the Fox instance you created in [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example).
@@ -274,7 +274,7 @@ An instance of [xilution-graphql-backend-example](https://github.com/xilution/xi
 ## Host on Xilution Coyote
 
 The following instructions describe how to host this example on Xilution Coyote.
-An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running on [Fox](https://products.xilution.com/integration/fox) to start the app connected to a Fox hosted API.
+An instance of [xilution-graphql-backend-example](https://github.com/xilution/xilution-graphql-backend-example) must be running on [Fox](https://products.xilution.com/api/catalog/integration/fox) to start the app connected to a Fox hosted API.
 
 ### Create a Coyote Instance
 
