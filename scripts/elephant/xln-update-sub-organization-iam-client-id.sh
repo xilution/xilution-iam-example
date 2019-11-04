@@ -37,7 +37,7 @@ sub_organization_id=${XILUTION_SUB_ORGANIZATION_ID}
 user_id=${XILUTION_ACCOUNT_USER_ID}
 iam_client_id=${XILUTION_IAM_CLIENT_ID}
 
-curl -s \
+response=$(curl -s \
   -X PUT \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${access_token}" \
@@ -50,4 +50,6 @@ curl -s \
     \"active\": true,
     \"iamClientId\": \"${iam_client_id}\"
   }" \
-  "https://${environment}.elephant.basics.api.xilution.com/organizations/${sub_organization_id}"
+  "https://${environment}.elephant.basics.api.xilution.com/organizations/${sub_organization_id}")
+
+echo "${response}"

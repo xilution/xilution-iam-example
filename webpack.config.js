@@ -32,8 +32,7 @@ module.exports = env => {
     }
 
     return {
-        mode: "development",
-        devtool: "inline-source-map",
+        mode: "production",
         devServer: {
             contentBase: "/",
             openPage: "",

@@ -255,7 +255,7 @@ Note: Requires Account Organization Authentication
 
 ### Update the Sub-Organization's IAM Client ID
 
-1. Run `yarn xln:elephant:update-iam-client-id`.
+1. Run `yarn xln:elephant:update-sub-organization-iam-client-id`.
 
 ## Running Locally
 
@@ -297,6 +297,10 @@ A Coyote Instance contains data that instructs Coyote on how to host your conten
 * To see your instances, run `yarn xln:coyote:show-instances`.
 * To delete a instance, run `yarn xln:coyote:delete-instance {coyote-instance-id}`
 
+### Update the Web Client's Redirect URIs
+
+1. Run `yarn xln:hippo:update-web-client-redirect-uris`.
+
 ### Provision the Coyote Instance
 
 Note: Requires Account Organization Authentication
@@ -337,7 +341,7 @@ The instance must be provisioned before your content is publicly available.
 Note: Requires Account Organization Authentication
 
 1. Run `cat .env | grep XILUTION_COYOTE_INSTANCE_ID` to see your Coyote Instance ID.
-1. Open https://{coyote-instance-id}.prod.coyote.content-delivery.xilution in a browser.
+1. Open `https://{coyote-instance-id}.prod.coyote.content-delivery.xilution.com` in a browser.
 
 ### Deprovision the Coyote Instance
 
