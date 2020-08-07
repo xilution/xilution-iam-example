@@ -48,7 +48,7 @@ response=$(curl -s \
     \"organizationId\": \"${sub_organization_id}\",
     \"owningUserId\": \"${user_id}\",
     \"active\": true,
-    \"iamClientId\": \"${iam_client_id}\"
+    \"authClientId\": \"${iam_client_id}\"
   }" \
   "https://${environment}.elephant.basics.api.xilution.com/organizations/${sub_organization_id}")
 
