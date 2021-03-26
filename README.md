@@ -50,7 +50,7 @@ I will take about thirty (30) minutes to run through this example.
 ## Xilution Product Hierarchy
 
 Here's a quick overview of the Xilution products highlighted in this example.
-For a complete directory of Xilution products, see https://prod.products.xilution.com/.
+For a complete directory of Xilution products, see https://products.xilution.com/.
 
 ```text
                  +------------------+
@@ -178,12 +178,12 @@ You'll authenticate to the portals with your Xilution Account username and passw
 
 | Portal   | Prod                                                      | Test                                                      |
 |----------|-----------------------------------------------------------|-----------------------------------------------------------|
-| Account  | https://prod.portal.xilution.com/                         | https://test.portal.xilution.com/                         |
-| Elephant | https://prod.portal.elephant.basics.xilution.com/         | https://test.portal.elephant.basics.xilution.com/         |
-| Rhino    | https://prod.portal.rhino.basics.xilution.com/            | https://test.portal.rhino.basics.xilution.com/            |
-| Hippo    | https://prod.portal.hippo.basics.xilution.com/            | https://test.portal.hippo.basics.xilution.com/            |
-| Coyote   | https://prod.portal.coyote.content-delivery.xilution.com/ | https://test.portal.coyote.content-delivery.xilution.com/ |
-| Fox      | https://prod.portal.fox.integration.xilution.com/         | https://test.portal.fox.integration.xilution.com/         |
+| Account  | https://portal.xilution.com/                         | https://test.portal.xilution.com/                         |
+| Elephant | https://portal.elephant.basics.xilution.com/         | https://test.portal.elephant.basics.xilution.com/         |
+| Rhino    | https://portal.rhino.basics.xilution.com/            | https://test.portal.rhino.basics.xilution.com/            |
+| Hippo    | https://portal.hippo.basics.xilution.com/            | https://test.portal.hippo.basics.xilution.com/            |
+| Coyote   | https://portal.coyote.content-delivery.xilution.com/ | https://test.portal.coyote.content-delivery.xilution.com/ |
+| Fox      | https://portal.fox.integration.xilution.com/         | https://test.portal.fox.integration.xilution.com/         |
 
 ### API
 
